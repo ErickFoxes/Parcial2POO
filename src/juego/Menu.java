@@ -132,9 +132,8 @@ public class Menu {
     public void escogerVehiculosD() {
         System.out.println("----------------------------------------");
         System.out.println("Vehiculos, Llamar:");
-        System.out.println("1. Cerdo Demonio  (Costo: )"+20+" Fases: ");
-        System.out.println("2. Cuervo (Costo: )"+20+" Fases: ");
-        System.out.println("3. Toro S (Costo: )"+20+" Fases: ");
+        System.out.println("1. Cuervo (Costo: )"+20+" Fases: ");
+        System.out.println("2. Toro S (Costo: )"+20+" Fases: ");
         System.out.println("Ingrese la opcion que desea ejecutar: ");
     }
     
@@ -143,7 +142,6 @@ public class Menu {
         System.out.println("Vehiculos, Llamar:");
         System.out.println("1. Caballo  (Costo: )"+20+" Fases: ");
         System.out.println("2. Carrosas (Costo: )"+20+" Fases: ");
-        System.out.println("3. Tanque de guerra (Costo: )"+20+" Fases: ");
         System.out.println("Ingrese la opcion que desea ejecutar: ");
     }
     
@@ -152,7 +150,6 @@ public class Menu {
         System.out.println("Vehiculos, Crear:");
         System.out.println("1. MBW volador  (Costo: )"+20+" Fases: ");
         System.out.println("2. caballo alado (Costo: )"+20+" Fases: ");
-        System.out.println("3. Motocicletas (Costo: )"+20+" Fases: ");
         System.out.println("Ingrese la opcion que desea ejecutar: ");
     }
 }
