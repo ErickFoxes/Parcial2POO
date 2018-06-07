@@ -7,8 +7,8 @@ package Edificios;
 
 /**
  *
- * @author Yliana Leones
+ * @author Erick Leones
  */
-public class CentroInvocacionD {
+public class CentroInvocacionD  implements Edificios{
     
 }

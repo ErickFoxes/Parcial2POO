@@ -5,10 +5,27 @@
  */
 package Factory;
 
+import Edificios.FactoryEdificios;
+import Milicia.FactoryMilicia;
+import Razas.FactoryRazas;
+import Vehiculos.FactoryVehiculos;
+
 /**
  *
- * @author Yliana Leones
+ * @author Erick Leones
  */
 public class FactoryProducer {
-    
+    public static AbstractFactory getFactory(String type){
+        switch(type){
+            case "Razas":
+                return new FactoryRazas();
+            case "Edificios":
+                return new FactoryEdificios();
+            case "Vehiculos":
+                return new FactoryVehiculos();
+            case "Milicia":
+                return new FactoryMilicia();
+        }
+        return null;
+    }
 }

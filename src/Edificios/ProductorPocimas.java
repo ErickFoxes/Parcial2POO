@@ -7,8 +7,8 @@ package Edificios;
 
 /**
  *
- * @author Yliana Leones
+ * @author Erick Leones
  */
-public class ProductorPocimas {
+public class ProductorPocimas  implements Edificios{
     
 }

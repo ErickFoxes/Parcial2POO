@@ -7,8 +7,8 @@ package Milicia;
 
 /**
  *
- * @author Yliana Leones
+ * @author Erick Leones
  */
-public class DemonioMayor {
+public class DemonioMayor implements Milicia{
     
 }

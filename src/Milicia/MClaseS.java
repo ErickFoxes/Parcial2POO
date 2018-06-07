@@ -7,8 +7,8 @@ package Milicia;
 
 /**
  *
- * @author Yliana Leones
+ * @author Erick Leones
  */
-public class MClaseS {
+public class MClaseS implements Milicia{
     
 }

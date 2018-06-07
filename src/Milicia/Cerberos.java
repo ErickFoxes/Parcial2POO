@@ -7,8 +7,8 @@ package Milicia;
 
 /**
  *
- * @author Yliana Leones
+ * @author Erick Leones
  */
-public class Cerberos {
+public class Cerberos implements Milicia{
     
 }

@@ -29,8 +29,9 @@ public class Menu {
     public void menu() {
         int x = 0;
         Scanner M = new Scanner(System.in);
-        while (x != 13) {
-            escoger();
+        
+            mensajeDeInicio();
+            mensajeDeInicio2();
             try {
                 
                 x = M.nextInt();
@@ -50,8 +51,83 @@ public class Menu {
                 System.err.println("Debes ingresar un # entero");
                 M.nextLine();
             }
-        }
+        
     }
+    
+    public void mensajeDeInicio(){
+        int opcionInvocacion = 0;
+        String opcionElegidaInvocacion;
+        boolean b = true;
+        Scanner M = new Scanner(System.in);
+        System.out.println("Juego de 3 aldeas que quieren conquistarse unas a otras, para hacerlo necesitarán ayuda.");
+        
+        
+            System.out.println("Jugador 1 Elija su tipo de invocación:\n1-Angeles\n2-Deidades\n3-Demonios");
+            while(b){
+                try {
+                    opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            opcionElegidaInvocacion = "Angeles";
+                            System.out.println("Jugador 1 haz elegido invocar Angeles para ayudar a tu aldea");
+                            b=false;
+                            break;
+                        case 2:
+                            opcionElegidaInvocacion = "Deidades";
+                            System.out.println("Jugador 1 haz elegido invocar Deidades para ayudar a tu aldea");
+                            b=false;
+                            break;
+                        case 3:
+                            opcionElegidaInvocacion = "Demonios";
+                            System.out.println("Jugador 1 haz elegido invocar Demonios para ayudar a tu aldea");
+                            b=false;
+                            break;
+                        
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");      
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            } 
+            
+        }
+    public void mensajeDeInicio2(){
+        int opcionInvocacion = 0;
+        String opcionElegidaInvocacion;
+        boolean b = true;
+        Scanner M = new Scanner(System.in);
+                   System.out.println("Jugador 2 Elija su tipo de invocación:\n1-Angeles\n2-Deidades\n3-Demonios");
+            while(b){
+                try {
+                    opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            opcionElegidaInvocacion = "Angeles";
+                            System.out.println("Jugador 2 haz elegido invocar Angeles para ayudar a tu aldea");
+                            b=false;
+                            break;
+                        case 2:
+                            opcionElegidaInvocacion = "Deidades";
+                            System.out.println("Jugador 2 haz elegido invocar Deidades para ayudar a tu aldea");
+                            b=false;
+                            break;
+                        case 3:
+                            opcionElegidaInvocacion = "Demonios";
+                            System.out.println("Jugador 2 haz elegido invocar Demonios para ayudar a tu aldea");
+                            b=false;
+                            break;
+                        
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");      
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }       
+        }
     public void fase() {
         System.out.println("----------------------------------------");
         System.out.println("                Fase "+1+"              ");

@@ -9,6 +9,6 @@ package Milicia;
  *
  * @author Erick Leones
  */
-public class Arcangeles implements Milicia{
+public interface Milicia {
     
 }

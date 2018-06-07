@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Milicia;
+package Vehiculos;
 
 /**
  *
  * @author Erick Leones
  */
-public class Arcangeles implements Milicia{
+public interface Vehiculos {
     
 }

@@ -7,8 +7,8 @@ package Edificios;
 
 /**
  *
- * @author Yliana Leones
+ * @author Erick Leones
  */
-public class ConstructorVehiculosA {
+public class ConstructorVehiculosA  implements Edificios{
     
 }

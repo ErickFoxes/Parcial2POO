@@ -7,8 +7,8 @@ package Vehiculos;
 
 /**
  *
- * @author Yliana Leones
+ * @author Erick Leones
  */
-public class Carrosa {
+public class Carrosa  implements Vehiculos{
     
 }

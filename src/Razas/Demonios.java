@@ -7,8 +7,8 @@ package Razas;
 
 /**
  *
- * @author Yliana Leones
+ * @author Erick Leones
  */
-public class Demonios {
+public class Demonios implements Razas{
     
 }

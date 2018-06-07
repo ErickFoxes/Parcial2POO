@@ -7,8 +7,8 @@ package Milicia;
 
 /**
  *
- * @author Yliana Leones
+ * @author Erick Leones
  */
-public class Espadachines {
+public class Espadachines implements Milicia{
     
 }

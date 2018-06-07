@@ -5,10 +5,18 @@
  */
 package Factory;
 
+import Edificios.Edificios;
+import Milicia.Milicia;
+import Razas.Razas;
+import Vehiculos.Vehiculos;
+
 /**
  *
- * @author Yliana Leones
+ * @author Erick Leones
  */
 public interface AbstractFactory {
-    
+    Razas getRazas(String type);
+    Milicia getMilicia(String type);
+    Edificios getEdificios(String type);
+    Vehiculos getVehiculos(String type);
 }

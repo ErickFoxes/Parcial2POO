@@ -7,8 +7,8 @@ package Edificios;
 
 /**
  *
- * @author Yliana Leones
+ * @author Erick Leones
  */
-public class RuedaSacrificios {
+public class RuedaSacrificios  implements Edificios{
     
 }
