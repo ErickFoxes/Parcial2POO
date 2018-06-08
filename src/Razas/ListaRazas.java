@@ -7,13 +7,8 @@ package Razas;
 
 /**
  *
- * @author Erick Leones
+ * @author Erick <00092217@uca.edu.sv>
  */
-public class Deidades implements Razas{
-
-    @Override
-    public void Crear() {
-        System.out.println("deidades wii");
-    }
+public class ListaRazas {
     
 }

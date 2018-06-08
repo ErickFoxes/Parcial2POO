@@ -10,5 +10,5 @@ package Razas;
  * @author Erick Leones
  */
 public interface Razas {
-    
+    void Crear();
 }

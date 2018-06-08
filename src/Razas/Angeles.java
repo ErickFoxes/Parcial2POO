@@ -10,5 +10,12 @@ package Razas;
  * @author Erick Leones
  */
 public class Angeles implements Razas{
+
+    @Override
+    public void Crear() {
+        System.out.println("angeles wii");
+    }
+
+   
     
 }

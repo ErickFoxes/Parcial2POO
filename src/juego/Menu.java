@@ -5,6 +5,9 @@
  */
 package juego;
 
+import Factory.AbstractFactory;
+import Factory.FactoryProducer;
+import Razas.Razas;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -27,40 +30,32 @@ public class Menu {
     }
     
     public void menu() {
-        int x = 0;
+        int x = 1,y=0;
         Scanner M = new Scanner(System.in);
-        
+        Fases fase = new Fases();
+
             mensajeDeInicio();
             mensajeDeInicio2();
-            try {
-                
-                x = M.nextInt();
-
-                switch (x) {
-                    case 1:
-                        
-                        break;
-                    case 2:
-                        
-                        break;
-                    
-                    default:
-                        System.out.println("Por favor ingresa un valor valido");      
-                }
-            } catch (InputMismatchException E){
-                System.err.println("Debes ingresar un # entero");
-                M.nextLine();
+            
+             while(y==0){
+                fase.setFases(x);
+                fase(fase.getFases());
+                x++;
+                escoger();
             }
-        
+            
+            
     }
     
     public void mensajeDeInicio(){
+        
         int opcionInvocacion = 0;
         String opcionElegidaInvocacion;
         boolean b = true;
         Scanner M = new Scanner(System.in);
         System.out.println("Juego de 3 aldeas que quieren conquistarse unas a otras, para hacerlo necesitarán ayuda.");
-        
+        AbstractFactory factory;
+        factory =  FactoryProducer.getFactory("Razas");
         
             System.out.println("Jugador 1 Elija su tipo de invocación:\n1-Angeles\n2-Deidades\n3-Demonios");
             while(b){
@@ -70,16 +65,22 @@ public class Menu {
                         case 1:
                             opcionElegidaInvocacion = "Angeles";
                             System.out.println("Jugador 1 haz elegido invocar Angeles para ayudar a tu aldea");
+                            Razas angeles = factory.getRazas("Angeles");
+                            angeles.Crear();
                             b=false;
                             break;
                         case 2:
                             opcionElegidaInvocacion = "Deidades";
                             System.out.println("Jugador 1 haz elegido invocar Deidades para ayudar a tu aldea");
+                            Razas deidades = factory.getRazas("Deidades");
+                            deidades.Crear();
                             b=false;
                             break;
                         case 3:
                             opcionElegidaInvocacion = "Demonios";
                             System.out.println("Jugador 1 haz elegido invocar Demonios para ayudar a tu aldea");
+                            Razas demonios = factory.getRazas("Demonios");
+                            demonios.Crear();
                             b=false;
                             break;
                         
@@ -97,6 +98,8 @@ public class Menu {
         int opcionInvocacion = 0;
         String opcionElegidaInvocacion;
         boolean b = true;
+        AbstractFactory factory;
+        factory =  FactoryProducer.getFactory("Razas");
         Scanner M = new Scanner(System.in);
                    System.out.println("Jugador 2 Elija su tipo de invocación:\n1-Angeles\n2-Deidades\n3-Demonios");
             while(b){
@@ -106,16 +109,22 @@ public class Menu {
                         case 1:
                             opcionElegidaInvocacion = "Angeles";
                             System.out.println("Jugador 2 haz elegido invocar Angeles para ayudar a tu aldea");
+                            Razas angeles = factory.getRazas("Angeles");
+                            angeles.Crear();
                             b=false;
                             break;
                         case 2:
                             opcionElegidaInvocacion = "Deidades";
                             System.out.println("Jugador 2 haz elegido invocar Deidades para ayudar a tu aldea");
+                            Razas deidades = factory.getRazas("Deidades");
+                            deidades.Crear();
                             b=false;
                             break;
                         case 3:
                             opcionElegidaInvocacion = "Demonios";
                             System.out.println("Jugador 2 haz elegido invocar Demonios para ayudar a tu aldea");
+                            Razas demonios = factory.getRazas("Demonios");
+                            demonios.Crear();
                             b=false;
                             break;
                         
@@ -128,9 +137,9 @@ public class Menu {
                 }
             }       
         }
-    public void fase() {
+    public void fase(int fase) {
         System.out.println("----------------------------------------");
-        System.out.println("                Fase "+1+"              ");
+        System.out.println("                Fase "+fase+"              ");
         System.out.println("----------------------------------------");
     }
     
@@ -143,6 +152,26 @@ public class Menu {
         System.out.println("4. Entrenar ");
         System.out.println("5. Terminar ");
         System.out.println("Ingrese la opcion que desea ejecutar: ");
+        Scanner M = new Scanner(System.in);
+        boolean b = true;
+        while(b){
+                try {
+                    int opcionInvocacion = M.nextInt();
+                    String opcionElegidaMenu;
+                    switch (opcionInvocacion) {
+                        case 1:
+                        case 2:
+                        case 3:
+                        
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");      
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }    
+        
     }
     
     public void escogerEdificiosD() {

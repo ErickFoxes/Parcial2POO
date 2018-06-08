@@ -3,17 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Razas;
+package juego;
 
 /**
  *
- * @author Erick Leones
+ * @author Erick <00092217@uca.edu.sv>
  */
-public class Deidades implements Razas{
-
-    @Override
-    public void Crear() {
-        System.out.println("deidades wii");
-    }
-    
+public class Jugador {
+    private String Jugador1, Jugador2;
 }

@@ -10,5 +10,8 @@ package Razas;
  * @author Erick Leones
  */
 public class Demonios implements Razas{
-    
+    @Override
+    public void Crear() {
+        System.out.println("demonios wii");
+    }
 }
