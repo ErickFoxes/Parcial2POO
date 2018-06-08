@@ -138,9 +138,9 @@ public class Menu {
             }       
         }
     public void fase(int fase) {
-        System.out.println("----------------------------------------");
+        System.out.println("-----------------------------------------");
         System.out.println("                Fase "+fase+"              ");
-        System.out.println("----------------------------------------");
+        System.out.println("-----------------------------------------");
     }
     
     public void escoger() {
