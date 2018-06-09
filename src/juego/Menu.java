@@ -5,9 +5,7 @@
  */
 package juego;
 
-import Factory.AbstractFactory;
-import Factory.FactoryProducer;
-import Razas.Razas;
+import Edificios.ListaEdificios;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -16,6 +14,10 @@ import java.util.Scanner;
  * @author Erick <00092217@uca.edu.sv>
  */
 public class Menu {
+    Jugador jugador1 = new Jugador();
+    Jugador jugador2 = new Jugador();
+    ListaEdificios listaEdificios = new ListaEdificios();
+    ListaEdificios listaEdificios2 = new ListaEdificios();
     private static Menu menu;
 
     private Menu() {
@@ -30,19 +32,33 @@ public class Menu {
     }
     
     public void menu() {
-        int x = 1,y=0;
+        int x = 1,TJugador=1;
+        boolean jugando=true;
         Scanner M = new Scanner(System.in);
         Fases fase = new Fases();
+        listaEdificios.AgregarTorreQuemado();
+        listaEdificios2.AgregarTorreQuemado();
+        mensajeDeInicio();
+        mensajeDeInicio2();
+        fase.setFases(x);
+        while(jugando){
+           
+           fase(fase.getFases());    
+           
+           
+           if(TJugador==1){
+               escoger(TJugador);
+               TJugador=2;
+           }else if(TJugador==2){
+               escoger2(TJugador);
+               TJugador=1;
+               fase.setFases(x);
+               x++;
+           }
+           
+           
 
-            mensajeDeInicio();
-            mensajeDeInicio2();
-            
-             while(y==0){
-                fase.setFases(x);
-                fase(fase.getFases());
-                x++;
-                escoger();
-            }
+       }
             
             
     }
@@ -54,8 +70,8 @@ public class Menu {
         boolean b = true;
         Scanner M = new Scanner(System.in);
         System.out.println("Juego de 3 aldeas que quieren conquistarse unas a otras, para hacerlo necesitarán ayuda.");
-        AbstractFactory factory;
-        factory =  FactoryProducer.getFactory("Razas");
+//        AbstractFactory factory;
+//        factory =  FactoryProducer.getFactory("Razas");
         
             System.out.println("Jugador 1 Elija su tipo de invocación:\n1-Angeles\n2-Deidades\n3-Demonios");
             while(b){
@@ -63,24 +79,21 @@ public class Menu {
                     opcionInvocacion = M.nextInt();
                     switch (opcionInvocacion) {
                         case 1:
-                            opcionElegidaInvocacion = "Angeles";
                             System.out.println("Jugador 1 haz elegido invocar Angeles para ayudar a tu aldea");
-                            Razas angeles = factory.getRazas("Angeles");
-                            angeles.Crear();
+//                            ListaRazas listaAngeles = new ListaRazas();
+//                            listaAngeles.AgregarRaza();
+//                            listaAngeles.MostrarPaquete();
+                            jugador1.raza = "Angeles";
                             b=false;
                             break;
                         case 2:
-                            opcionElegidaInvocacion = "Deidades";
                             System.out.println("Jugador 1 haz elegido invocar Deidades para ayudar a tu aldea");
-                            Razas deidades = factory.getRazas("Deidades");
-                            deidades.Crear();
+                            jugador1.raza = "Deidades";
                             b=false;
                             break;
                         case 3:
-                            opcionElegidaInvocacion = "Demonios";
                             System.out.println("Jugador 1 haz elegido invocar Demonios para ayudar a tu aldea");
-                            Razas demonios = factory.getRazas("Demonios");
-                            demonios.Crear();
+                            jugador1.raza = "Demonios";
                             b=false;
                             break;
                         
@@ -98,8 +111,7 @@ public class Menu {
         int opcionInvocacion = 0;
         String opcionElegidaInvocacion;
         boolean b = true;
-        AbstractFactory factory;
-        factory =  FactoryProducer.getFactory("Razas");
+        
         Scanner M = new Scanner(System.in);
                    System.out.println("Jugador 2 Elija su tipo de invocación:\n1-Angeles\n2-Deidades\n3-Demonios");
             while(b){
@@ -107,24 +119,18 @@ public class Menu {
                     opcionInvocacion = M.nextInt();
                     switch (opcionInvocacion) {
                         case 1:
-                            opcionElegidaInvocacion = "Angeles";
                             System.out.println("Jugador 2 haz elegido invocar Angeles para ayudar a tu aldea");
-                            Razas angeles = factory.getRazas("Angeles");
-                            angeles.Crear();
+                            jugador2.raza = "Angeles";
                             b=false;
                             break;
                         case 2:
-                            opcionElegidaInvocacion = "Deidades";
                             System.out.println("Jugador 2 haz elegido invocar Deidades para ayudar a tu aldea");
-                            Razas deidades = factory.getRazas("Deidades");
-                            deidades.Crear();
+                            jugador2.raza = "Deidades";
                             b=false;
                             break;
                         case 3:
-                            opcionElegidaInvocacion = "Demonios";
                             System.out.println("Jugador 2 haz elegido invocar Demonios para ayudar a tu aldea");
-                            Razas demonios = factory.getRazas("Demonios");
-                            demonios.Crear();
+                            jugador2.raza = "Demonios";
                             b=false;
                             break;
                         
@@ -143,26 +149,69 @@ public class Menu {
         System.out.println("-----------------------------------------");
     }
     
-    public void escoger() {
-        System.out.println("----------------------------------------");
-        System.out.println("Turno Jugador 1");
-        System.out.println("1. Construir ");
-        System.out.println("2. Mejorar ");
-        System.out.println("3. Atacar ");
-        System.out.println("4. Entrenar ");
-        System.out.println("5. Terminar ");
-        System.out.println("Ingrese la opcion que desea ejecutar: ");
-        Scanner M = new Scanner(System.in);
+    public void escoger(int TJugador) {
+        
         boolean b = true;
         while(b){
+            System.out.println("----------------------------------------");
+            System.out.println("Turno Jugador "+TJugador+"");
+            System.out.println("1. Construir ");
+            System.out.println("2. Mejorar ");
+            System.out.println("3. Atacar ");
+            System.out.println("4. Entrenar ");
+            System.out.println("5. Mostrar recursos,edificios,milicia ");
+            System.out.println("6. Terminar ");
+            System.out.println("Ingrese la opcion que desea ejecutar: ");
+            Scanner M = new Scanner(System.in);
                 try {
                     int opcionInvocacion = M.nextInt();
-                    String opcionElegidaMenu;
                     switch (opcionInvocacion) {
                         case 1:
-                        case 2:
-                        case 3:
-                        
+                            escogerEdificiosM(TJugador);
+                        break;
+                        case 5:
+                            listaEdificios.MostrarEdificio();
+                        break;
+                        case 6:
+                            b=false;
+                        break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");      
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }    
+        
+    }
+    
+    public void escoger2(int TJugador) {
+        
+        boolean b = true;
+        while(b){
+            System.out.println("----------------------------------------");
+            System.out.println("Turno Jugador "+TJugador+"");
+            System.out.println("1. Construir ");
+            System.out.println("2. Mejorar ");
+            System.out.println("3. Atacar ");
+            System.out.println("4. Entrenar ");
+            System.out.println("5. Mostrar recursos,edificios,milicia ");
+            System.out.println("6. Terminar ");
+            System.out.println("Ingrese la opcion que desea ejecutar: ");
+            Scanner M = new Scanner(System.in);
+                try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            escogerEdificiosM(TJugador);
+                        break;
+                        case 5:
+                            listaEdificios2.MostrarEdificio();
+                        break;
+                        case 6:
+                            b=false;
+                            break;
                         default:
                             System.out.println("Por favor ingresa un valor valido");      
                     }
@@ -196,7 +245,7 @@ public class Menu {
         System.out.println("Ingrese la opcion que desea ejecutar: ");
     }
     
-    public void escogerEdificiosM() {
+    public void escogerEdificiosM(int TJugador) {
         System.out.println("----------------------------------------");
         System.out.println("Edificios, construir:");
         System.out.println("1. Productor de mana (Costo: )"+20+" Fases: ");
@@ -205,6 +254,47 @@ public class Menu {
         System.out.println("4. Centro de invocación de deidades (Costo: )"+20+" Fases: ");
         System.out.println("5. Constructor de vehiculos (Costo: )"+20+" Fases: ");
         System.out.println("Ingrese la opcion que desea ejecutar:");
+        Scanner M = new Scanner(System.in);
+        boolean b = true;
+        if(TJugador==1){
+            while(b){
+                try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            listaEdificios.AgregarProductorMana();
+                            b=false;
+                            break;
+
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");      
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }  
+        }else{
+            while(b){
+                try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            listaEdificios2.AgregarProductorMana();
+                            b=false;
+                            break;
+
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");      
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }
+        }
+         
+        
     }
     
     public void escogerMiliciaD() {

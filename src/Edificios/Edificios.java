@@ -10,5 +10,5 @@ package Edificios;
  * @author UCA
  */
 public interface Edificios {
-    
+    void Crear(int madera, int mana, int pocimas,int vida);
 }

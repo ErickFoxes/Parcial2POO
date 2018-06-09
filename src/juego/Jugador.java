@@ -5,10 +5,13 @@
  */
 package juego;
 
+import java.util.Map;
+
 /**
  *
  * @author Erick <00092217@uca.edu.sv>
  */
 public class Jugador {
-    private String Jugador1, Jugador2;
+   String raza;
+    
 }

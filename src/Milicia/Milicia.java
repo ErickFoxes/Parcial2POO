@@ -10,5 +10,5 @@ package Milicia;
  * @author Erick Leones
  */
 public interface Milicia {
-    
+    void Crear();
 }

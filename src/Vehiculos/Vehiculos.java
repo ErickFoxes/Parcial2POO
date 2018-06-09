@@ -10,5 +10,5 @@ package Vehiculos;
  * @author Erick Leones
  */
 public interface Vehiculos {
-    
+    void Crear();
 }

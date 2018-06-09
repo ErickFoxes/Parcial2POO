@@ -10,7 +10,7 @@ package Razas;
  * @author Erick Leones
  */
 public class Angeles implements Razas{
-
+    String Jugador;
     @Override
     public void Crear() {
         System.out.println("angeles wii");

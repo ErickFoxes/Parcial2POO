@@ -10,5 +10,8 @@ package Vehiculos;
  * @author Erick Leones
  */
 public class BMWVoladores implements Vehiculos{
-    
+    @Override
+    public void Crear() {
+         System.out.println("CREANDO");
+    }
 }

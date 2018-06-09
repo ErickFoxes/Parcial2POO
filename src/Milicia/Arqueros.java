@@ -10,5 +10,8 @@ package Milicia;
  * @author Erick Leones
  */
 public class Arqueros implements Milicia{
-    
+    @Override
+    public void Crear() {
+         System.out.println("CREANDO");
+    }
 }

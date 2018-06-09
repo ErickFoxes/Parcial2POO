@@ -10,5 +10,8 @@ package Milicia;
  * @author Erick Leones
  */
 public class MClaseC implements Milicia{
-    
+    @Override
+    public void Crear() {
+         System.out.println("CREANDO");
+    }
 }

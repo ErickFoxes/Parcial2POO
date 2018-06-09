@@ -53,7 +53,7 @@ public class FactoryEdificios implements AbstractFactory{
                 return new ProductorPocimas();
             case "Rueda de Sacrificios":
                 return new RuedaSacrificios();
-            case "TorreAsociacion":
+            case "Torre Asociacion":
                 return new TorreAsociacion();  
         }
         return null;

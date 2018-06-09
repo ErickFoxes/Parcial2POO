@@ -10,5 +10,8 @@ package Vehiculos;
  * @author Erick Leones
  */
 public class TorosD  implements Vehiculos{
-    
+    @Override
+    public void Crear() {
+         System.out.println("CREANDO");
+    }
 }
