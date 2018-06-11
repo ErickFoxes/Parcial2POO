@@ -20,7 +20,13 @@ public class ConstructorVehiculosM  implements Edificios{
         this.vida = vida;
     }
     public String toString() {
-        return "Constructor de vehiculos:\nRecursos: vida: "+vida;
+        String estadoE;
+        if(estado!=0){
+            estadoE="No disponible";
+        }else{
+            estadoE="Disponible";
+        }
+        return "Constructor de vehiculos:\nRecursos: vida: "+vida+" Estado:"+estadoE;
     }
 
     @Override

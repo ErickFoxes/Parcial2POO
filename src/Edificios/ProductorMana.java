@@ -21,7 +21,13 @@ public class ProductorMana  implements Edificios{
     }
     @Override
     public String toString() {
-        return "Productor mana:\nRecursos: Mana: "+mana+" vida: "+vida;
+        String estadoE;
+        if(estado!=0){
+            estadoE="No disponible";
+        }else{
+            estadoE="Disponible";
+        }
+        return "Productor mana:\nRecursos: Mana: "+mana+" vida: "+vida+" Estado:"+estadoE;
     }
     
     @Override

@@ -28,18 +28,12 @@ public class FactoryMilicia implements AbstractFactory{
                 return new Arcangeles();
             case "Arqueros":
                 return new Arqueros();
-            case "Cerberos":
-                return new Cerberos();
             case "Demonio Mayor":
                 return new DemonioMayor();
             case "Demonio Menor":
                 return new DemonioMenor();
-            case "Espadachines":
-                return new Espadachines();
             case "Deidades clase A":
                 return new MClaseA();
-            case "Deidades clase C":
-                return new MClaseC();
             case "Deidades clase S":
                 return new MClaseS();
             

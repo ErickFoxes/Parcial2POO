@@ -7,6 +7,7 @@ package juego;
 
 import Edificios.Edificios;
 import Edificios.ListaEdificios;
+import Milicia.ListaMilicia;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -19,6 +20,8 @@ public class Menu {
     Jugador jugador2 = new Jugador();
     ListaEdificios listaEdificios = new ListaEdificios();
     ListaEdificios listaEdificios2 = new ListaEdificios();
+    ListaMilicia listaMilicia = new ListaMilicia();
+    ListaMilicia listaMilicia2 = new ListaMilicia();
     private static Menu menu;
 
     private Menu() {
@@ -145,16 +148,38 @@ public class Menu {
         System.out.println("-----------------------------------------");
         
         modificarRecurso(TJugador,300,"CentroSangreA",1);
-        modificarRecurso(TJugador,150,"RuedaSacrificios",2);
-        modificarRecurso(TJugador,25,"MineriaOro",3);
+        modificarRecurso(TJugador,155,"RuedaSacrificios",2);
+        modificarRecurso(TJugador,30,"MineriaOro",3);
         
-        modificarRecurso(TJugador,300,"Mineria",1);
-        modificarRecurso(TJugador,150,"ProductorMana",2);
-        modificarRecurso(TJugador,25,"ProductorPocimas",3);
+        modificarRecurso(TJugador,400,"Mineria",1);
+        modificarRecurso(TJugador,200,"ProductorMana",2);
+        modificarRecurso(TJugador,50,"ProductorPocimas",3);
         
-        modificarRecurso(TJugador,300,"CentroSangreD",1);
-        modificarRecurso(TJugador,150,"ExtractorSueños",2);
-        modificarRecurso(TJugador,25,"CentroRecolector",3);
+        modificarRecurso(TJugador,400,"CentroSangreD",1);
+        modificarRecurso(TJugador,200,"ExtractorSueños",2);
+        modificarRecurso(TJugador,50,"CentroRecolector",3);
+        if(TJugador==1){
+            listaEdificios.VerEstado("CentroInvocacionA");
+            listaEdificios.VerEstado("CentroInvocacionD");
+            listaEdificios.VerEstado("CentroInvocacionM");
+            listaMilicia.VerEstado("Arcangeles");
+            listaMilicia.VerEstado("Arqueros");
+            listaMilicia.VerEstado("Demonio Mayor");
+            listaMilicia.VerEstado("Demonio Menor");
+            listaMilicia.VerEstado("Deidades clase A");
+            listaMilicia.VerEstado("Deidades clase S");
+        }else{
+            listaEdificios2.VerEstado("CentroInvocacionA");
+            listaEdificios2.VerEstado("CentroInvocacionD");
+            listaEdificios2.VerEstado("CentroInvocacionM");
+            listaMilicia2.VerEstado("Arcangeles");
+            listaMilicia2.VerEstado("Arqueros");
+            listaMilicia2.VerEstado("Demonio Mayor");
+            listaMilicia2.VerEstado("Demonio Menor");
+            listaMilicia2.VerEstado("Deidades clase A");
+            listaMilicia2.VerEstado("Deidades clase S");
+        }
+        
         
     }
     public void modificarRecurso(int TJugador,int Re,String edificio,int Recurso){
@@ -176,6 +201,7 @@ public class Menu {
              listaEdificios2.AumentarEdificioRecurso(edificio,R1,R2,R3,V,Re,Recurso);
          } 
     }
+    
     public void escoger(int TJugador) {
         
         boolean b = true;
@@ -201,14 +227,27 @@ public class Menu {
                             }else if("Angeles".equals(jugador1.raza)){
                                 escogerEdificiosA(TJugador);
                             }
-                            
-                        break;
+                            break;
+                        case 4:
+                            if(listaEdificios.verificarEdificioLista("CentroInvocacionA") || listaEdificios.verificarEdificioLista("CentroInvocacionD") || listaEdificios.verificarEdificioLista("CentroInvocacionM")){
+                                if("Deidades".equals(jugador1.raza) ){
+                                escogerMiliciaM(TJugador);
+                                }else if("Demonios".equals(jugador1.raza)){
+                                    escogerMiliciaD(TJugador);
+                                }else if("Angeles".equals(jugador1.raza)){
+                                    escogerMiliciaA(TJugador);
+                                }
+                            }else{
+                                System.out.println("No tienes un centro de invocación disponible.");
+                            }
+                            break;
                         case 5:
                             listaEdificios.MostrarEdificio();
-                        break;
+                            listaMilicia.MostrarMilicia();
+                            break;
                         case 6:
                             b=false;
-                        break;
+                            break;
                         default:
                             System.out.println("Por favor ingresa un valor valido");      
                     }
@@ -246,8 +285,22 @@ public class Menu {
                                 escogerEdificiosA(TJugador);
                             }
                         break;
+                        case 4:
+                            if(listaEdificios2.verificarEdificioLista("CentroInvocacionA") || listaEdificios2.verificarEdificioLista("CentroInvocacionD") || listaEdificios2.verificarEdificioLista("CentroInvocacionM")){
+                                if("Deidades".equals(jugador2.raza) ){
+                                escogerMiliciaM(TJugador);
+                                }else if("Demonios".equals(jugador2.raza)){
+                                    escogerMiliciaD(TJugador);
+                                }else if("Angeles".equals(jugador2.raza)){
+                                    escogerMiliciaA(TJugador);
+                                }
+                            }else{
+                                System.out.println("No tienes un centro de invocación disponible.");
+                            }
+                            break;
                         case 5:
                             listaEdificios2.MostrarEdificio();
+                            listaMilicia2.MostrarMilicia();
                         break;
                         case 6:
                             b=false;
@@ -786,34 +839,314 @@ public class Menu {
         
     }
     
-    public void escogerMiliciaD() {
+    public void escogerMiliciaD(int TJugador) {
+        
         System.out.println("----------------------------------------");
         System.out.println("Milicia, Invocar:");
-        System.out.println("1. Demonio menor (Costo: )"+20+" Fases: ");
-        System.out.println("2. Demonio Mayor (Costo: )"+20+" Fases: ");
-        System.out.println("3. Cerberos (Costo: )"+20+" Fases: ");
+        System.out.println("1. Demonio menor Costo: 100 Sangre + 100 sueños Fases:2 fases\nDaño: 45 Vida: 90 ");
+        System.out.println("2. Demonio Mayor Costo: 500 Sangre + 600 sueños Fases:4 fases\nDaño: 200 Vida: 450 ");
         System.out.println("Ingrese la opcion que desea ejecutar: ");
+        Scanner M = new Scanner(System.in);
+        Edificios recu = listaEdificios.VerRecursos();
+        Edificios recu2 = listaEdificios2.VerRecursos();
+        boolean b = true;
+        int R1,R2,R3,V;
+        if(TJugador==1){
+            if(listaMilicia.contarMilicia()<maximoMilicia(TJugador)){
+                while(b){
+                    try {
+                        int opcionInvocacion = M.nextInt();
+                        switch (opcionInvocacion) {
+                            case 1:
+                                if(recu.MostrarRecurso1()>=100 && recu.MostrarRecurso2()>=100){
+                                    listaMilicia.AgregarDemonioMenor();
+                                    R1=recu.MostrarRecurso1()-100;
+                                    R2=recu.MostrarRecurso2()-100;
+                                    R3=recu.MostrarRecurso3();
+                                    V=recu.MostrarVida();
+                                    recu.modificarRecursos(R1, R2, R3, V);
+                                }else{
+                                    System.out.println("No tienes recursos suficientes");
+                                }
+                                b=false;
+                                break;
+                            case 2:
+                                if(recu.MostrarRecurso1()>=500 && recu.MostrarRecurso2()>=600){
+                                    listaMilicia.AgregarDemonioMayor();
+                                    R1=recu.MostrarRecurso1()-500;
+                                    R2=recu.MostrarRecurso2()-600;
+                                    R3=recu.MostrarRecurso3();
+                                    V=recu.MostrarVida();
+                                    recu.modificarRecursos(R1, R2, R3, V);
+                                }else{
+                                    System.out.println("No tienes recursos suficientes");
+                                }
+                                b=false;
+                                break;
+                            default:
+                                System.out.println("Por favor ingresa un valor valido");
+                        }
+                    } catch (InputMismatchException E){
+                        System.err.println("Debes ingresar un # entero");
+                        M.nextLine();
+                    }
+                } 
+            }else{
+                System.out.println("Ya tienes la capacidad maxima de Milicia");
+            }
+             
+        }else{
+            if(listaMilicia2.contarMilicia()<maximoMilicia(TJugador)){
+                while(b){
+                    try {
+                        int opcionInvocacion = M.nextInt();
+                        switch (opcionInvocacion) {
+                            case 1:
+                                if(recu2.MostrarRecurso1()>=100 && recu2.MostrarRecurso2()>=100){
+                                    listaMilicia2.AgregarDemonioMenor();
+                                    R1=recu.MostrarRecurso1()-100;
+                                    R2=recu.MostrarRecurso2()-100;
+                                    R3=recu.MostrarRecurso3();
+                                    V=recu.MostrarVida();
+                                    recu2.modificarRecursos(R1, R2, R3, V);
+                                }else{
+                                    System.out.println("No tienes recursos suficientes");
+                                }
+                                b=false;
+                                break;
+                            case 2:
+                                if(recu2.MostrarRecurso1()>=500 && recu2.MostrarRecurso2()>=600){
+                                    listaMilicia2.AgregarDemonioMayor();
+                                    R1=recu.MostrarRecurso1()-500;
+                                    R2=recu.MostrarRecurso2()-600;
+                                    R3=recu.MostrarRecurso3();
+                                    V=recu.MostrarVida();
+                                    recu2.modificarRecursos(R1, R2, R3, V);
+                                }else{
+                                    System.out.println("No tienes recursos suficientes");
+                                }
+                                b=false;
+                                break;
+                            default:
+                                System.out.println("Por favor ingresa un valor valido");
+                        }
+                    } catch (InputMismatchException E){
+                        System.err.println("Debes ingresar un # entero");
+                        M.nextLine();
+                    }
+                }
+            }else{
+                System.out.println("Ya tienes la capacidad maxima de Milicia");
+            }
+            
+        }
     }
     
-    public void escogerMiliciaA() {
+    public void escogerMiliciaA(int TJugador) {
         System.out.println("----------------------------------------");
         System.out.println("Milicia, Invocar:");
-        System.out.println("1. Arqueros (Costo: )"+20+" Fases: ");
-        System.out.println("2. Espadachines (Costo: )"+20+" Fases: ");
-        System.out.println("3. Arcangeles (Costo: )"+20+" Fases: ");
+        System.out.println("1. Arqueros Costo: 90 Sangre + 80 Sacrificios Fases:2 fases\nDaño: 70 Vida: 120  ");
+        System.out.println("2. Arcangeles Costo: 500 Sangre + 600 Sueños Fases:4 fases\nDaño: 425 Vida: 400  ");
         System.out.println("Ingrese la opcion que desea ejecutar: ");
+        Scanner M = new Scanner(System.in);
+        Edificios recu = listaEdificios.VerRecursos();
+        Edificios recu2 = listaEdificios2.VerRecursos();
+        boolean b = true;
+        int R1,R2,R3,V;
+        if(TJugador==1){
+            if(listaMilicia.contarMilicia()<maximoMilicia(TJugador)){
+                while(b){
+                    try {
+                        int opcionInvocacion = M.nextInt();
+                        switch (opcionInvocacion) {
+                            case 1:
+                                if(recu.MostrarRecurso1()>=90 && recu.MostrarRecurso2()>=80){
+                                    listaMilicia.AgregarArqueros();
+                                    R1=recu.MostrarRecurso1()-90;
+                                    R2=recu.MostrarRecurso2()-80;
+                                    R3=recu.MostrarRecurso3();
+                                    V=recu.MostrarVida();
+                                    recu.modificarRecursos(R1, R2, R3, V);
+                                }else{
+                                    System.out.println("No tienes recursos suficientes");
+                                }
+                                b=false;
+                                break;
+                            case 2:
+                                if(recu.MostrarRecurso1()>=500 && recu.MostrarRecurso2()>=600){
+                                    listaMilicia.AgregarArcangeles();
+                                    R1=recu.MostrarRecurso1()-500;
+                                    R2=recu.MostrarRecurso2()-600;
+                                    R3=recu.MostrarRecurso3();
+                                    V=recu.MostrarVida();
+                                    recu.modificarRecursos(R1, R2, R3, V);
+                                }else{
+                                    System.out.println("No tienes recursos suficientes");
+                                }
+                                b=false;
+                                break;
+                            default:
+                                System.out.println("Por favor ingresa un valor valido");
+                        }
+                    } catch (InputMismatchException E){
+                        System.err.println("Debes ingresar un # entero");
+                        M.nextLine();
+                    }
+                } 
+            }else{
+                System.out.println("Ya tienes la capacidad maxima de Milicia");
+            }
+             
+        }else{
+            if(listaMilicia.contarMilicia()<maximoMilicia(TJugador)){
+                while(b){
+                    try {
+                        int opcionInvocacion = M.nextInt();
+                        switch (opcionInvocacion) {
+                            case 1:
+                                if(recu2.MostrarRecurso1()>=90 && recu2.MostrarRecurso2()>=80){
+                                    listaMilicia2.AgregarArqueros();
+                                    R1=recu.MostrarRecurso1()-90;
+                                    R2=recu.MostrarRecurso2()-80;
+                                    R3=recu.MostrarRecurso3();
+                                    V=recu.MostrarVida();
+                                    recu2.modificarRecursos(R1, R2, R3, V);
+                                }else{
+                                    System.out.println("No tienes recursos suficientes");
+                                }
+                                b=false;
+                                break;
+                            case 2:
+                                if(recu2.MostrarRecurso1()>=500 && recu2.MostrarRecurso2()>=600){
+                                    listaMilicia2.AgregarArcangeles();
+                                    R1=recu.MostrarRecurso1()-500;
+                                    R2=recu.MostrarRecurso2()-600;
+                                    R3=recu.MostrarRecurso3();
+                                    V=recu.MostrarVida();
+                                    recu2.modificarRecursos(R1, R2, R3, V);
+                                }else{
+                                    System.out.println("No tienes recursos suficientes");
+                                }
+                                b=false;
+                                break;
+                            default:
+                                System.out.println("Por favor ingresa un valor valido");
+                        }
+                    } catch (InputMismatchException E){
+                        System.err.println("Debes ingresar un # entero");
+                        M.nextLine();
+                    }
+                }
+            }else{
+                System.out.println("Ya tienes la capacidad maxima de Milicia");
+            }
+            
+        }
     }
     
-    public void escogerMiliciaM() {
+    public void escogerMiliciaM(int TJugador) {
         System.out.println("----------------------------------------");
         System.out.println("Milicia, Invocar:");
-        System.out.println("1. Deidad clase A (Costo: )"+20+" Fases: ");
-        System.out.println("2. Deidad clase C (Costo: )"+20+" Fases: ");
-        System.out.println("3. Deidad clase S (Costo: )"+20+" Fases: ");
+        System.out.println("1. Deidad clase A Costo: 100 Madera + 100 Mana Fases:2 fases\nDaño: 50 Vida: 100 ");
+        System.out.println("2. Deidad clase S Costo: 500 Madera + 600 Mana Fases:4 fases\nDaño: 300 Vida: 400  ");
         System.out.println("Ingrese la opcion que desea ejecutar: ");
+        Scanner M = new Scanner(System.in);
+        Edificios recu = listaEdificios.VerRecursos();
+        Edificios recu2 = listaEdificios2.VerRecursos();
+        boolean b = true;
+        int R1,R2,R3,V;
+        if(TJugador==1){
+            if(listaMilicia.contarMilicia()<maximoMilicia(TJugador)){
+                while(b){
+                    try {
+                        int opcionInvocacion = M.nextInt();
+                        switch (opcionInvocacion) {
+                            case 1:
+                                if(recu.MostrarRecurso1()>=100 && recu.MostrarRecurso2()>=100){
+                                    listaMilicia.AgregarClaseA();
+                                    R1=recu.MostrarRecurso1()-100;
+                                    R2=recu.MostrarRecurso2()-100;
+                                    R3=recu.MostrarRecurso3();
+                                    V=recu.MostrarVida();
+                                    recu.modificarRecursos(R1, R2, R3, V);
+                                }else{
+                                    System.out.println("No tienes recursos suficientes");
+                                }
+                                b=false;
+                                break;
+                            case 2:
+                                if(recu.MostrarRecurso1()>=500 && recu.MostrarRecurso2()>=600){
+                                    listaMilicia.AgregarClaseS();
+                                    R1=recu.MostrarRecurso1()-500;
+                                    R2=recu.MostrarRecurso2()-600;
+                                    R3=recu.MostrarRecurso3();
+                                    V=recu.MostrarVida();
+                                    recu.modificarRecursos(R1, R2, R3, V);
+                                }else{
+                                    System.out.println("No tienes recursos suficientes");
+                                }
+                                b=false;
+                                break;
+                            default:
+                                System.out.println("Por favor ingresa un valor valido");
+                        }
+                    } catch (InputMismatchException E){
+                        System.err.println("Debes ingresar un # entero");
+                        M.nextLine();
+                    }
+                }  
+            }else{
+                System.out.println("Ya tienes la capacidad maxima de Milicia");
+            }
+            
+        }else{
+            if(listaMilicia.contarMilicia()<maximoMilicia(TJugador)){
+                while(b){
+                    try {
+                        int opcionInvocacion = M.nextInt();
+                        switch (opcionInvocacion) {
+                            case 1:
+                                if(recu2.MostrarRecurso1()>=100 && recu2.MostrarRecurso2()>=100){
+                                    listaMilicia2.AgregarClaseA();
+                                    R1=recu.MostrarRecurso1()-100;
+                                    R2=recu.MostrarRecurso2()-100;
+                                    R3=recu.MostrarRecurso3();
+                                    V=recu.MostrarVida();
+                                    recu2.modificarRecursos(R1, R2, R3, V);
+                                }else{
+                                    System.out.println("No tienes recursos suficientes");
+                                }
+                                b=false;
+                                break;
+                            case 2:
+                                if(recu2.MostrarRecurso1()>=500 && recu2.MostrarRecurso2()>=600){
+                                    listaMilicia2.AgregarClaseS();
+                                    R1=recu.MostrarRecurso1()-500;
+                                    R2=recu.MostrarRecurso2()-600;
+                                    R3=recu.MostrarRecurso3();
+                                    V=recu.MostrarVida();
+                                    recu2.modificarRecursos(R1, R2, R3, V);
+                                }else{
+                                    System.out.println("No tienes recursos suficientes");
+                                }
+                                b=false;
+                                break;
+                            default:
+                                System.out.println("Por favor ingresa un valor valido");
+                        }
+                    } catch (InputMismatchException E){
+                        System.err.println("Debes ingresar un # entero");
+                        M.nextLine();
+                    }
+                }
+            }else{
+                System.out.println("Ya tienes la capacidad maxima de Milicia");
+            }
+            
+        }
     }
     
-    public void escogerVehiculosD() {
+    public void escogerVehiculosD(int TJugador) {
         System.out.println("----------------------------------------");
         System.out.println("Vehiculos, Llamar:");
         System.out.println("1. Cuervo (Costo: )"+20+" Fases: ");
@@ -821,7 +1154,7 @@ public class Menu {
         System.out.println("Ingrese la opcion que desea ejecutar: ");
     }
     
-    public void escogerVehiculosA() {
+    public void escogerVehiculosA(int TJugador) {
         System.out.println("----------------------------------------");
         System.out.println("Vehiculos, Llamar:");
         System.out.println("1. Caballo  (Costo: )"+20+" Fases: ");
@@ -829,12 +1162,37 @@ public class Menu {
         System.out.println("Ingrese la opcion que desea ejecutar: ");
     }
     
-    public void escogerVehiculosM() {
+    public void escogerVehiculosM(int TJugador) {
         System.out.println("----------------------------------------");
         System.out.println("Vehiculos, Crear:");
         System.out.println("1. MBW volador  (Costo: )"+20+" Fases: ");
         System.out.println("2. caballo alado (Costo: )"+20+" Fases: ");
         System.out.println("Ingrese la opcion que desea ejecutar: ");
+    }
+    
+    public int maximoMilicia(int TJugador){
+         int maxMilicia=0;
+        if(TJugador==1){
+            int cantMilicia = listaMilicia.contarMilicia(),cantCentroInvoA=listaEdificios.contarEdificio("CentroInvocacionA"),cantCentroInvoD=listaEdificios.contarEdificio("CentroInvocacionD"),cantCentroInvoM=listaEdificios.contarEdificio("CentroInvocacionM");
+            if("Deidades".equals(jugador1.raza) ){
+                maxMilicia = cantCentroInvoM*10;
+            }else if("Demonios".equals(jugador1.raza)){
+                maxMilicia = cantCentroInvoD*10;
+            }else if("Angeles".equals(jugador1.raza)){
+                maxMilicia = cantCentroInvoA*10;
+            }
+        }else{
+            int cantMilicia = listaMilicia2.contarMilicia(),cantCentroInvoA=listaEdificios2.contarEdificio("CentroInvocacionA"),cantCentroInvoD=listaEdificios2.contarEdificio("CentroInvocacionD"),cantCentroInvoM=listaEdificios2.contarEdificio("CentroInvocacionM");
+            if("Deidades".equals(jugador2.raza) ){
+                maxMilicia = cantCentroInvoM*10;
+            }else if("Demonios".equals(jugador2.raza)){
+                maxMilicia = cantCentroInvoD*10;
+            }else if("Angeles".equals(jugador2.raza)){
+                maxMilicia = cantCentroInvoA*10;
+            }
+        }
+        return maxMilicia;
+        
     }
 }
 

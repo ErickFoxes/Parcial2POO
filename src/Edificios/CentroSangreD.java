@@ -19,8 +19,14 @@ public class CentroSangreD  implements Edificios{
         this.madera = madera;
         this.vida = vida;
     }
-        public String toString() {
-        return "Centro recolector de sangre:\nRecursos: Sangre: "+sangre+" vida: "+vida;
+    public String toString() {
+        String estadoE;
+        if(estado!=0){
+            estadoE="No disponible";
+        }else{
+            estadoE="Disponible";
+        }
+        return "Centro recolector de sangre:\nRecursos: Sangre: "+sangre+" vida: "+vida+" Estado:"+estadoE;
     }
 
    @Override

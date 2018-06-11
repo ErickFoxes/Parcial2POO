@@ -20,7 +20,13 @@ public class CentroInvocacionM  implements Edificios{
         this.vida = vida;
     }
     public String toString() {
-        return "Centro invocador:\nRecursos: vida: "+vida;
+        String estadoE;
+        if(estado!=0){
+            estadoE="No disponible";
+        }else{
+            estadoE="Disponible";
+        }
+        return "Centro invocador:\nRecursos: vida: "+vida+" Estado:"+estadoE;
     }
     @Override
     public int MostrarRecurso1() {

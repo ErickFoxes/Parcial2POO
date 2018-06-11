@@ -19,8 +19,14 @@ public class ProductorPocimas  implements Edificios{
         this.pocimas = pocimas;
         this.vida = vida;
     }
-        public String toString() {
-        return "Productor de pocimas:\nRecursos: Pocimas: "+pocimas+" vida: "+vida;
+    public String toString() {
+        String estadoE;
+        if(estado!=0){
+            estadoE="No disponible";
+        }else{
+            estadoE="Disponible";
+        }
+        return "Productor de pocimas:\nRecursos: Pocimas: "+pocimas+" vida: "+vida+" Estado:"+estadoE;
     }
 
     @Override

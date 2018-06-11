@@ -19,8 +19,14 @@ public class MineriaOro  implements Edificios{
         this.oro = oro;
         this.vida = vida;
     }
-        public String toString() {
-        return "Mineria de oro:\nRecursos: Oro: "+oro+" vida: "+vida;
+    public String toString() {
+        String estadoE;
+        if(estado!=0){
+            estadoE="No disponible";
+        }else{
+            estadoE="Disponible";
+        }    
+        return "Mineria de oro:\nRecursos: Oro: "+oro+" vida: "+vida+" Estado:"+estadoE;
     }
     @Override
     public int MostrarRecurso1() {

@@ -19,8 +19,14 @@ public class ConstructorVehiculos  implements Edificios{
         this.madera = madera;
         this.vida = vida;
     }
-        public String toString() {
-        return "Constructor de vehiculos:\nRecursos: vida: "+vida;
+    public String toString() {
+        String estadoE;
+        if(estado!=0){
+            estadoE="No disponible";
+        }else{
+            estadoE="Disponible";
+        }
+        return "Constructor de vehiculos:\nRecursos: vida: "+vida+" Estado:"+estadoE;
     }
      @Override
     public int MostrarRecurso1() {

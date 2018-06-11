@@ -19,8 +19,14 @@ public class CentroRecolector  implements Edificios{
         this.madera = madera;
         this.vida = vida;
     }
-        public String toString() {
-        return "Centro recolector de madera:\nRecursos: Madera: "+madera+" vida: "+vida;
+    public String toString() {
+        String estadoE;
+        if(estado!=0){
+            estadoE="No disponible";
+        }else{
+            estadoE="Disponible";
+        }
+        return "Centro recolector de madera:\nRecursos: Madera: "+madera+" vida: "+vida+" Estado:"+estadoE;
     }
 
     @Override

@@ -19,8 +19,14 @@ public class ExtractorSueños  implements Edificios{
         this.madera = madera;
         this.vida = vida;
     }
-        public String toString() {
-        return "Extractor de sueños:\nRecursos: Sueños: "+sueños+" vida: "+vida;
+    public String toString() {
+        String estadoE;
+        if(estado!=0){
+            estadoE="No disponible";
+        }else{
+            estadoE="Disponible";
+        }
+        return "Extractor de sueños:\nRecursos: Sueños: "+sueños+" vida: "+vida+" Estado:"+estadoE;
     }
     @Override
     public int MostrarRecurso1() {

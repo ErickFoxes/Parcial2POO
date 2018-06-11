@@ -163,15 +163,18 @@ public class ListaEdificios {
         });
     }
     public void AumentarEdificioRecurso(String edificio,int Re1,int Re2,int Re3,int V1,int Rc,int Recurso){      
-        int i =0,o=0;
+        int i =0,o=0,j=0;
         int R1,R2,R3,V;
         int itemCount = edificios.size();
 
             if(Recurso==1){
                 while(i<itemCount){
                     if(edificios.get(i).MostrarNombre()==edificio){
-                        o++;
-                        
+                        if(edificios.get(i).MostrarEstado()==0){
+                            o++;
+                        }else{
+                            edificios.get(i).modificarEstado(edificios.get(i).MostrarEstado()+1);
+                        }
                     }
                     i++;
                 }
@@ -179,14 +182,22 @@ public class ListaEdificios {
             }else if(Recurso==2){
                 while(i<itemCount){
                     if(edificios.get(i).MostrarNombre()==edificio){
-                        o++;
+                        if(edificios.get(i).MostrarEstado()==0){
+                            o++;
+                        }else{
+                            edificios.get(i).modificarEstado(edificios.get(i).MostrarEstado()+1);
+                        }
                     }
                     i++;
                 } edificios.get(0).modificarRecursos(Re1, Re2+(Rc*o), Re3, V1);
             }else if(Recurso==3){
                 while(i<itemCount){
                     if(edificios.get(i).MostrarNombre()==edificio){
-                        o++;
+                        if(edificios.get(i).MostrarEstado()==0){
+                            o++;
+                        }else{
+                            edificios.get(i).modificarEstado(edificios.get(i).MostrarEstado()+1);
+                        }
                     }
                     i++;
                 }edificios.get(0).modificarRecursos(Re1, Re2, Re3+(Rc*o), V1);
@@ -196,16 +207,40 @@ public class ListaEdificios {
     public Edificios VerRecursos(){      
         return edificios.get(0);
     }
-    public void VerEstado(String edificio,int estadoNew){      
+    public void VerEstado(String edificio){      
         int i =0, itemCount = edificios.size();
         while(i<itemCount){
             if(edificios.get(i).MostrarNombre()==edificio){
                 if(edificios.get(i).MostrarEstado()<0){
                     edificios.get(i).modificarEstado(edificios.get(i).MostrarEstado()+1);
                 }
-                
             }
             i++;
         }
     }
+    public boolean verificarEdificioLista(String edificio){
+         int i =0, itemCount = edificios.size();
+         boolean t=false;
+        while(i<itemCount){
+            if(edificios.get(i).MostrarNombre()==edificio){
+                if(edificios.get(i).MostrarEstado()==0){
+                    t=true;
+                }
+                
+            }
+            i++;
+        }
+        return t;
+    }
+    public int contarEdificio(String edificio){
+        int i =0, itemCount = edificios.size(),o=0;
+        while(i<itemCount){
+            if(edificios.get(i).MostrarNombre()==edificio){
+                o++;
+            }
+            i++;
+        }
+        return o;
+    }
+    
 }

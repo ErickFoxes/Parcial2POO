@@ -19,8 +19,14 @@ public class RuedaSacrificios  implements Edificios{
         this.oro = oro;
         this.vida = vida;
     }
-        public String toString() {
-        return "Rueda de sacrificios:\nRecursos: Sacrificios: "+sacrificios+" vida: "+vida;
+    public String toString() {
+        String estadoE;
+        if(estado!=0){
+            estadoE="No disponible";
+        }else{
+            estadoE="Disponible";
+        }  
+        return "Rueda de sacrificios:\nRecursos: Sacrificios: "+sacrificios+" vida: "+vida+" Estado:"+estadoE;
     }
     @Override
     public int MostrarRecurso1() {

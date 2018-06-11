@@ -10,5 +10,15 @@ package Milicia;
  * @author Erick Leones
  */
 public interface Milicia {
-    void Crear();
+    void Crear(int daño, int vida, int estado, int atacando);
+    int mostrarDaño();
+    int mostrarVida();
+    int mostrarEstado();
+    int mostrarAtacando();
+    String mostrarNombre();
+    void modificarDaño(int x);
+    void modificarVida(int x);
+    void modificarEstado(int x);
+    void modificarAtacando(int x);
+    
 }
