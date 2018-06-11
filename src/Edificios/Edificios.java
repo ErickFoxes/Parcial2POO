@@ -11,4 +11,16 @@ package Edificios;
  */
 public interface Edificios {
     void Crear(int madera, int mana, int pocimas,int vida);
+    int MostrarRecurso1();
+    int MostrarRecurso2();
+    int MostrarRecurso3();
+    int MostrarVida();
+    int MostrarEstado();
+    int MostrarMaxRecurso1();
+    int MostrarMaxRecurso2();
+    int MostrarMaxRecurso3();
+    String MostrarNombre();
+    void modificarEstado(int x);
+    void modificarRecursos(int x,int y,int z,int vida);
+    
 }

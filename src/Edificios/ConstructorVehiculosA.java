@@ -10,48 +10,69 @@ package Edificios;
  * @author Erick Leones
  */
 public class ConstructorVehiculosA  implements Edificios{
-   private int madera,mana,pocimas,vida;
+  private int sangre,sacrificios,oro,vida,sangreMax,sacrificiosMax,oroMax,estado=-5;
+  String nombre="ConstructorVehiculosA";
     @Override
-    public void Crear(int madera, int mana, int pocimas,int vida) {
-         this.madera = madera;
-        this.mana = mana;
-        this.pocimas = pocimas;
+    public void Crear(int sangre, int sacrificios, int oro,int vida) {
+         this.sangre = sangre;
+        this.sacrificios = sacrificios;
+        this.oro = oro;
         this.vida = vida;
     }
-    //    public String toString() {
-//        return "Torre Asociacion:\nRecursos: Madera: "+madera+" Mana: "+mana+" Pocimas: "+pocimas+" vida: "+vida;
-//    }
-
-    public int getMadera() {
-        return madera;
+    public String toString() {
+        return "Constructor de vehiculos:\nRecursos: vida: "+vida;
+    }
+    @Override
+    public int MostrarRecurso1() {
+        return sangre;
     }
 
-    public void setMadera(int madera) {
-        this.madera = madera;
+    @Override
+    public int MostrarRecurso2() {
+        return sacrificios;
     }
 
-    public int getMana() {
-        return mana;
+    @Override
+    public int MostrarRecurso3() {
+        return oro;
     }
 
-    public void setMana(int mana) {
-        this.mana = mana;
+    @Override
+    public int MostrarMaxRecurso1() {
+        return sangreMax;
     }
 
-    public int getPocimas() {
-        return pocimas;
+    @Override
+    public int MostrarMaxRecurso2() {
+        return sacrificiosMax;
     }
 
-    public void setPocimas(int pocimas) {
-        this.pocimas = pocimas;
-    }
-
-    public int getVida() {
-        return vida;
-    }
-
-    public void setVida(int vida) {
+    @Override
+    public int MostrarMaxRecurso3() {
+        return oroMax;
+    } 
+    @Override
+    public void modificarRecursos(int x, int y, int z,int vida) {
+        this.sangre = x;
+        this.sacrificios = y;
+        this.oro = z;
         this.vida = vida;
     }
+    @Override
+    public int MostrarVida() {
+       return vida; 
+    }
+    @Override
+    public String MostrarNombre() {
+        return nombre;
+    }
+    @Override
+    public int MostrarEstado() {
+        return estado;
+    }
 
+    @Override
+    public void modificarEstado(int x) {
+        this.estado=x;
+    }
 }

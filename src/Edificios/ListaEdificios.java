@@ -19,48 +19,193 @@ public class ListaEdificios {
     public ListaEdificios(){
         edificios = new ArrayList<>();
     }
+    
+    /*Edificios de Deidades*/
     public void AgregarTorreQuemado(){
-        TorreAsociacion torreAsociacion= new TorreAsociacion();
-        edificios.add(torreAsociacion);
-        torreAsociacion.setMadera(10000);
-        torreAsociacion.setMana(5000);
-        torreAsociacion.setPocimas(3000);
-        torreAsociacion.setVida(8000);
-    }
-    public void AgregarTorre(){
         AbstractFactory factory;
         factory =  FactoryProducer.getFactory("Edificios");
-        Edificios edificio = factory.getEdificios("Torre Asociacion");
-        edificios.add(edificio); 
-        edificio.Crear(10000, 5000, 3000, 8000);
-    }
-    public void AgregarTorre(Edificios edifici) throws Exception{
-        if(edificios != null){
-            if(!edificios.contains(edifici)){
-                edificios.add(edifici);
-            }else{
-                Exception e = new Exception("Los datos ya pertenecen a otro paquete");
-                throw e;
-            }
-            
-        }else{
-            throw new Exception("El paquete no puede quedar vacío");
-        }
+        Edificios torre = factory.getEdificios("Torre Asociacion");
+        
+        edificios.add(torre);
+        torre.Crear(10000, 5000, 3000, 8000);
     }
     public void AgregarProductorMana(){
-        ProductorMana productorMana= new ProductorMana();
+        AbstractFactory factory;
+        factory =  FactoryProducer.getFactory("Edificios");
+        Edificios productorMana = factory.getEdificios("Productor de mana");
+        
         edificios.add(productorMana);
-        productorMana.setMadera(0);
-        productorMana.setMana(0);
-        productorMana.setPocimas(0);
-        productorMana.setVida(1000);
+        productorMana.Crear(0, 0, 0, 1000);
+    }
+    public void AgregarProductorPocimas(){
+        AbstractFactory factory;
+        factory =  FactoryProducer.getFactory("Edificios");
+        Edificios productorPocimas = factory.getEdificios("Productor de pocimas");
+        
+        edificios.add(productorPocimas);
+        productorPocimas.Crear(0, 0, 0, 1000);
+    }
+    public void AgregarMineria(){
+        AbstractFactory factory;
+        factory =  FactoryProducer.getFactory("Edificios");
+        Edificios mineria = factory.getEdificios("Mineria");
+        
+        edificios.add(mineria);
+        mineria.Crear(0, 0, 0, 1000);
+    }
+    public void AgregarCentroInvocacionM(){
+        AbstractFactory factory;
+        factory =  FactoryProducer.getFactory("Edificios");
+        Edificios centroInvocacionM = factory.getEdificios("Centro de Invocacion de Deidades");
+        
+        edificios.add(centroInvocacionM);
+        centroInvocacionM.Crear(0, 0, 0, 1000);
+    }
+    public void AgregarVehiculosM(){
+        AbstractFactory factory;
+        factory =  FactoryProducer.getFactory("Edificios");
+        Edificios vehiculos = factory.getEdificios("Constructor de vehiculos para Deidades");
+        
+        edificios.add(vehiculos);
+        vehiculos.Crear(0, 0, 0, 1000);
+    }
+    /*Edificios de Angeles*/
+    public void AgregarCentroOperativo(){
+        AbstractFactory factory;
+        factory =  FactoryProducer.getFactory("Edificios");
+        Edificios centroOperativo = factory.getEdificios("Centro Operativo");
+        edificios.add(centroOperativo);
+        centroOperativo.Crear(10000, 5000, 3000, 8000);
+    }
+    public void AgregarCentroSangreA(){
+        AbstractFactory factory;
+        factory =  FactoryProducer.getFactory("Edificios");
+        Edificios centroOperativo = factory.getEdificios("Centro de Recolección de Sangre para Angeles");
+        edificios.add(centroOperativo);
+        centroOperativo.Crear(0, 0, 0, 1000);
+    }
+    public void AgregarRuedaSacrificios(){
+        AbstractFactory factory;
+        factory =  FactoryProducer.getFactory("Edificios");
+        Edificios ruedaS = factory.getEdificios("Rueda de Sacrificios");
+        edificios.add(ruedaS);
+        ruedaS.Crear(0, 0, 0, 1000);
+    }
+    public void AgregarMineriaOro(){
+        AbstractFactory factory;
+        factory =  FactoryProducer.getFactory("Edificios");
+        Edificios mineriaOro = factory.getEdificios("Mineria de oro");
+        edificios.add(mineriaOro);
+        mineriaOro.Crear(0, 0, 0, 1000);
+    }
+    public void AgregarCentroInvocadorA(){
+        AbstractFactory factory;
+        factory =  FactoryProducer.getFactory("Edificios");
+        Edificios centroInvocadorA = factory.getEdificios("Centro de Invocación de Angeles");
+        edificios.add(centroInvocadorA);
+        centroInvocadorA.Crear(0, 0, 0, 1000);
+    }
+    public void AgregarConstructorVehiculosA(){
+        AbstractFactory factory;
+        factory =  FactoryProducer.getFactory("Edificios");
+        Edificios vehiculosA = factory.getEdificios("Constructor de vehiculos para Angeles");
+        edificios.add(vehiculosA);
+        vehiculosA.Crear(0, 0, 0, 1000);
+    }
+    /*Edificios de Demonios*/
+    public void AgregarCentroComando(){
+        AbstractFactory factory;
+        factory =  FactoryProducer.getFactory("Edificios");
+        Edificios centroComando = factory.getEdificios("Centro de Comando");
+        edificios.add(centroComando);
+        centroComando.Crear(10000, 5000, 3000, 8000);
+    }
+    public void AgregarDonadorSangreD(){
+        AbstractFactory factory;
+        factory =  FactoryProducer.getFactory("Edificios");
+        Edificios centroSangreD = factory.getEdificios("Centro de Recolección de Sangre para Demonios");
+        edificios.add(centroSangreD);
+        centroSangreD.Crear(0, 0, 0, 1000);
+    }
+    public void AgregarExtractorSueños(){
+        AbstractFactory factory;
+        factory =  FactoryProducer.getFactory("Edificios");
+        Edificios extractorSueños = factory.getEdificios("Extractor de sueños");
+        edificios.add(extractorSueños);
+        extractorSueños.Crear(0, 0, 0, 1000);
+    }
+    public void AgregarCentroRecolector(){
+        AbstractFactory factory;
+        factory =  FactoryProducer.getFactory("Edificios");
+        Edificios recolector = factory.getEdificios("Centro Recolector");
+        edificios.add(recolector);
+        recolector.Crear(0, 0, 0, 1000);
+    }
+    public void AgregarCentroInvocadorD(){
+        AbstractFactory factory;
+        factory =  FactoryProducer.getFactory("Edificios");
+        Edificios centroInvocadorD = factory.getEdificios("Centro de Invocación de Demonios");
+        edificios.add(centroInvocadorD);
+        centroInvocadorD.Crear(0, 0, 0, 1000);
+    }
+    public void AgregarConstructorVehiculosD(){
+        AbstractFactory factory;
+        factory =  FactoryProducer.getFactory("Edificios");
+        Edificios vehiculos = factory.getEdificios("Constructor de vehiculos para Demonios");
+        edificios.add(vehiculos);
+        vehiculos.Crear(0, 0, 0, 1000);
     }
     
     
-    public void MostrarEdificio(){
-               
+    public void MostrarEdificio(){      
         edificios.forEach((torreAsociacion) -> {
             System.out.println(torreAsociacion.toString());
         });
+    }
+    public void AumentarEdificioRecurso(String edificio,int Re1,int Re2,int Re3,int V1,int Rc,int Recurso){      
+        int i =0,o=0;
+        int R1,R2,R3,V;
+        int itemCount = edificios.size();
+
+            if(Recurso==1){
+                while(i<itemCount){
+                    if(edificios.get(i).MostrarNombre()==edificio){
+                        o++;
+                        
+                    }
+                    i++;
+                }
+                edificios.get(0).modificarRecursos(Re1+(Rc*o), Re2, Re3, V1);
+            }else if(Recurso==2){
+                while(i<itemCount){
+                    if(edificios.get(i).MostrarNombre()==edificio){
+                        o++;
+                    }
+                    i++;
+                } edificios.get(0).modificarRecursos(Re1, Re2+(Rc*o), Re3, V1);
+            }else if(Recurso==3){
+                while(i<itemCount){
+                    if(edificios.get(i).MostrarNombre()==edificio){
+                        o++;
+                    }
+                    i++;
+                }edificios.get(0).modificarRecursos(Re1, Re2, Re3+(Rc*o), V1);
+            }
+   
+    }
+    public Edificios VerRecursos(){      
+        return edificios.get(0);
+    }
+    public void VerEstado(String edificio,int estadoNew){      
+        int i =0, itemCount = edificios.size();
+        while(i<itemCount){
+            if(edificios.get(i).MostrarNombre()==edificio){
+                if(edificios.get(i).MostrarEstado()<0){
+                    edificios.get(i).modificarEstado(edificios.get(i).MostrarEstado()+1);
+                }
+                
+            }
+            i++;
+        }
     }
 }

@@ -10,48 +10,70 @@ package Edificios;
  * @author Erick Leones
  */
 public class CentroRecolector  implements Edificios{
-    private int madera,mana,pocimas,vida;
+    private int sangre,sueños,madera,vida,sangreMax,sueñosMax,maderaMax,estado=-2;
+    String nombre="CentroRecolector";
     @Override
-    public void Crear(int madera, int mana, int pocimas,int vida) {
-         this.madera = madera;
-        this.mana = mana;
-        this.pocimas = pocimas;
+    public void Crear(int sangre, int sueños, int madera,int vida) {
+         this.sangre = madera;
+        this.sueños = sueños;
+        this.madera = madera;
         this.vida = vida;
     }
-    //    public String toString() {
-//        return "Torre Asociacion:\nRecursos: Madera: "+madera+" Mana: "+mana+" Pocimas: "+pocimas+" vida: "+vida;
-//    }
+        public String toString() {
+        return "Centro recolector de madera:\nRecursos: Madera: "+madera+" vida: "+vida;
+    }
 
-    public int getMadera() {
+    @Override
+    public int MostrarRecurso1() {
+       return sangre;
+    }
+
+    @Override
+    public int MostrarRecurso2() {
+        return sueños;
+    }
+
+    @Override
+    public int MostrarRecurso3() {
         return madera;
     }
 
-    public void setMadera(int madera) {
-        this.madera = madera;
+    @Override
+    public int MostrarMaxRecurso1() {
+        return sangreMax;
     }
 
-    public int getMana() {
-        return mana;
+    @Override
+    public int MostrarMaxRecurso2() {
+        return sueñosMax;
     }
 
-    public void setMana(int mana) {
-        this.mana = mana;
+    @Override
+    public int MostrarMaxRecurso3() {
+        return maderaMax;
     }
-
-    public int getPocimas() {
-        return pocimas;
-    }
-
-    public void setPocimas(int pocimas) {
-        this.pocimas = pocimas;
-    }
-
-    public int getVida() {
-        return vida;
-    }
-
-    public void setVida(int vida) {
+     @Override
+    public void modificarRecursos(int x, int y, int z,int vida) {
+        this.sangre = x;
+        this.sueños = y;
+        this.madera = z;
         this.vida = vida;
     }
+    @Override
+    public int MostrarVida() {
+       return vida; 
+    }
+    @Override
+    public String MostrarNombre() {
+        return nombre;
+    }
+    @Override
+    public int MostrarEstado() {
+        return estado;
+    }
 
+    @Override
+    public void modificarEstado(int x) {
+        this.estado=x;
+    }
 }

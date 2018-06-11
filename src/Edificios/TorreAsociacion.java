@@ -10,51 +10,72 @@ package Edificios;
  * @author Erick Leones
  */
 public class TorreAsociacion  implements Edificios{
-    private int madera,mana,pocimas,vida;
+    private int maderaMax,manaMax,pocimasMax,vida,madera=1000,mana=600,pocimas=100,estado=0;
+    String nombre="TorreAsociacion";
     @Override
     public void Crear(int madera, int mana, int pocimas,int vida) {
-        this.madera = madera;
-        this.mana = mana;
-        this.pocimas = pocimas;
+        this.maderaMax = madera;
+        this.manaMax = mana;
+        this.pocimasMax = pocimas;
         this.vida = vida;
     }
     @Override
     public String toString() {
-        return "Torre Asociacion:\nRecursos: Madera: "+madera+" Mana: "+mana+" Pocimas: "+pocimas+" vida: "+vida;
+        return "Torre Asociacion:\nRecursos: Piedra: "+madera+" Mana: "+mana+" Pocimas: "+pocimas+" vida: "+vida;
     }
 
-    public int getMadera() {
+    @Override
+    public int MostrarRecurso1() {
         return madera;
     }
 
-    public void setMadera(int madera) {
-        this.madera = madera;
-    }
-
-    public int getMana() {
+    @Override
+    public int MostrarRecurso2() {
         return mana;
     }
 
-    public void setMana(int mana) {
-        this.mana = mana;
-    }
-
-    public int getPocimas() {
+    @Override
+    public int MostrarRecurso3() {
         return pocimas;
     }
 
-    public void setPocimas(int pocimas) {
-        this.pocimas = pocimas;
+    @Override
+    public int MostrarMaxRecurso1() {
+        return maderaMax;
     }
 
-    public int getVida() {
-        return vida;
+    @Override
+    public int MostrarMaxRecurso2() {
+        return manaMax;
     }
 
-    public void setVida(int vida) {
+    @Override
+    public int MostrarMaxRecurso3() {
+        return pocimasMax;
+    }
+
+    @Override
+    public void modificarRecursos(int x, int y, int z, int vida) {
+        this.madera = x;
+        this.mana = y;
+        this.pocimas = z;
         this.vida = vida;
     }
+    @Override
+    public int MostrarVida() {
+       return vida; 
+    }
+    @Override
+    public String MostrarNombre() {
+        return nombre;
+    }
+    @Override
+    public int MostrarEstado() {
+        return estado;
+    }
 
-    
-    
+    @Override
+    public void modificarEstado(int x) {
+        this.estado=x;
+    }
 }

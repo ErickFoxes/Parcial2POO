@@ -10,48 +10,70 @@ package Edificios;
  * @author Erick Leones
  */
 public class ConstructorVehiculosM  implements Edificios{
-    private int madera,mana,pocimas,vida;
+    private int madera,mana,pocimas,vida,maderaMax,manaMax,pocimasMax,estado=-5;
+    String nombre="ConstructorVehiculosM";
     @Override
     public void Crear(int madera, int mana, int pocimas,int vida) {
          this.madera = madera;
         this.mana = mana;
         this.pocimas = pocimas;
         this.vida = vida;
-    }//    public String toString() {
-//        return "Torre Asociacion:\nRecursos: Madera: "+madera+" Mana: "+mana+" Pocimas: "+pocimas+" vida: "+vida;
-//    }
+    }
+    public String toString() {
+        return "Constructor de vehiculos:\nRecursos: vida: "+vida;
+    }
 
-    public int getMadera() {
+    @Override
+    public int MostrarRecurso1() {
         return madera;
     }
 
-    public void setMadera(int madera) {
-        this.madera = madera;
-    }
-
-    public int getMana() {
+    @Override
+    public int MostrarRecurso2() {
         return mana;
     }
 
-    public void setMana(int mana) {
-        this.mana = mana;
-    }
-
-    public int getPocimas() {
+    @Override
+    public int MostrarRecurso3() {
         return pocimas;
     }
 
-    public void setPocimas(int pocimas) {
-        this.pocimas = pocimas;
+    @Override
+    public int MostrarMaxRecurso1() {
+        return maderaMax;
     }
 
-    public int getVida() {
-        return vida;
+    @Override
+    public int MostrarMaxRecurso2() {
+        return manaMax;
     }
 
-    public void setVida(int vida) {
+    @Override
+    public int MostrarMaxRecurso3() {
+        return pocimasMax;
+    }
+    @Override
+    public void modificarRecursos(int x, int y, int z, int vida) {
+        this.madera = x;
+        this.mana = y;
+        this.pocimas = z;
         this.vida = vida;
     }
+    @Override
+    public int MostrarVida() {
+       return vida; 
+    }
+    @Override
+    public String MostrarNombre() {
+        return nombre;
+    }
+    @Override
+    public int MostrarEstado() {
+        return estado;
+    }
 
-    
+    @Override
+    public void modificarEstado(int x) {
+        this.estado=x;
+    }
 }
