@@ -12,7 +12,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- *
+ *t
  * @author Erick <00092217@uca.edu.sv>
  */
 public class Menu {
@@ -27,6 +27,7 @@ public class Menu {
     private Menu() {
     }
 
+    
     public static Menu getInstance() {
         if (menu == null) {
             menu = new Menu();
