@@ -904,10 +904,10 @@ public class Menu {
                             case 1:
                                 if(recu2.MostrarRecurso1()>=100 && recu2.MostrarRecurso2()>=100){
                                     listaMilicia2.AgregarDemonioMenor();
-                                    R1=recu.MostrarRecurso1()-100;
-                                    R2=recu.MostrarRecurso2()-100;
-                                    R3=recu.MostrarRecurso3();
-                                    V=recu.MostrarVida();
+                                    R1=recu2.MostrarRecurso1()-100;
+                                    R2=recu2.MostrarRecurso2()-100;
+                                    R3=recu2.MostrarRecurso3();
+                                    V=recu2.MostrarVida();
                                     recu2.modificarRecursos(R1, R2, R3, V);
                                 }else{
                                     System.out.println("No tienes recursos suficientes");
@@ -917,10 +917,10 @@ public class Menu {
                             case 2:
                                 if(recu2.MostrarRecurso1()>=500 && recu2.MostrarRecurso2()>=600){
                                     listaMilicia2.AgregarDemonioMayor();
-                                    R1=recu.MostrarRecurso1()-500;
-                                    R2=recu.MostrarRecurso2()-600;
-                                    R3=recu.MostrarRecurso3();
-                                    V=recu.MostrarVida();
+                                    R1=recu2.MostrarRecurso1()-500;
+                                    R2=recu2.MostrarRecurso2()-600;
+                                    R3=recu2.MostrarRecurso3();
+                                    V=recu2.MostrarVida();
                                     recu2.modificarRecursos(R1, R2, R3, V);
                                 }else{
                                     System.out.println("No tienes recursos suficientes");
@@ -998,7 +998,7 @@ public class Menu {
             }
              
         }else{
-            if(listaMilicia.contarMilicia()<maximoMilicia(TJugador)){
+            if(listaMilicia2.contarMilicia()<maximoMilicia(TJugador)){
                 while(b){
                     try {
                         int opcionInvocacion = M.nextInt();
@@ -1006,10 +1006,10 @@ public class Menu {
                             case 1:
                                 if(recu2.MostrarRecurso1()>=90 && recu2.MostrarRecurso2()>=80){
                                     listaMilicia2.AgregarArqueros();
-                                    R1=recu.MostrarRecurso1()-90;
-                                    R2=recu.MostrarRecurso2()-80;
-                                    R3=recu.MostrarRecurso3();
-                                    V=recu.MostrarVida();
+                                    R1=recu2.MostrarRecurso1()-90;
+                                    R2=recu2.MostrarRecurso2()-80;
+                                    R3=recu2.MostrarRecurso3();
+                                    V=recu2.MostrarVida();
                                     recu2.modificarRecursos(R1, R2, R3, V);
                                 }else{
                                     System.out.println("No tienes recursos suficientes");
@@ -1019,10 +1019,10 @@ public class Menu {
                             case 2:
                                 if(recu2.MostrarRecurso1()>=500 && recu2.MostrarRecurso2()>=600){
                                     listaMilicia2.AgregarArcangeles();
-                                    R1=recu.MostrarRecurso1()-500;
-                                    R2=recu.MostrarRecurso2()-600;
-                                    R3=recu.MostrarRecurso3();
-                                    V=recu.MostrarVida();
+                                    R1=recu2.MostrarRecurso1()-500;
+                                    R2=recu2.MostrarRecurso2()-600;
+                                    R3=recu2.MostrarRecurso3();
+                                    V=recu2.MostrarVida();
                                     recu2.modificarRecursos(R1, R2, R3, V);
                                 }else{
                                     System.out.println("No tienes recursos suficientes");
@@ -1100,7 +1100,7 @@ public class Menu {
             }
             
         }else{
-            if(listaMilicia.contarMilicia()<maximoMilicia(TJugador)){
+            if(listaMilicia2.contarMilicia()<maximoMilicia(TJugador)){
                 while(b){
                     try {
                         int opcionInvocacion = M.nextInt();
@@ -1108,10 +1108,10 @@ public class Menu {
                             case 1:
                                 if(recu2.MostrarRecurso1()>=100 && recu2.MostrarRecurso2()>=100){
                                     listaMilicia2.AgregarClaseA();
-                                    R1=recu.MostrarRecurso1()-100;
-                                    R2=recu.MostrarRecurso2()-100;
-                                    R3=recu.MostrarRecurso3();
-                                    V=recu.MostrarVida();
+                                    R1=recu2.MostrarRecurso1()-100;
+                                    R2=recu2.MostrarRecurso2()-100;
+                                    R3=recu2.MostrarRecurso3();
+                                    V=recu2.MostrarVida();
                                     recu2.modificarRecursos(R1, R2, R3, V);
                                 }else{
                                     System.out.println("No tienes recursos suficientes");
@@ -1121,10 +1121,10 @@ public class Menu {
                             case 2:
                                 if(recu2.MostrarRecurso1()>=500 && recu2.MostrarRecurso2()>=600){
                                     listaMilicia2.AgregarClaseS();
-                                    R1=recu.MostrarRecurso1()-500;
-                                    R2=recu.MostrarRecurso2()-600;
-                                    R3=recu.MostrarRecurso3();
-                                    V=recu.MostrarVida();
+                                    R1=recu2.MostrarRecurso1()-500;
+                                    R2=recu2.MostrarRecurso2()-600;
+                                    R3=recu2.MostrarRecurso3();
+                                    V=recu2.MostrarVida();
                                     recu2.modificarRecursos(R1, R2, R3, V);
                                 }else{
                                     System.out.println("No tienes recursos suficientes");
