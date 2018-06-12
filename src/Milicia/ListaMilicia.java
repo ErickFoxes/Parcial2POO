@@ -108,4 +108,12 @@ public class ListaMilicia {
         int itemCount = milicia.size();
         return itemCount;
     }
+    public void MostrarMilicia2(){      
+
+        int i =0, itemCount = milicia.size(),o=0;
+        while(i<itemCount){
+            System.out.println((i+1)+"-"+milicia.get(i).mostrarNombre());
+            i++;
+        }
+    }
 }

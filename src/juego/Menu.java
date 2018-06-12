@@ -1626,16 +1626,50 @@ public class Menu {
         if(TJugador==1){
             if(listaMilicia.contarMilicia()!=0){
                 int cantEdificios = listaEdificios2.contarEdificios();
-                listaEdificios2.MostrarEdificio2();
-                
+                int cantMiliciaPropia = listaMilicia.contarMilicia();
+                System.out.println("1-Edificios\n2-Milicia\nElige un objetivo:");
+                Scanner M = new Scanner(System.in);
+                int opcionEleccion1 = M.nextInt();
+                try {
+                    switch (opcionEleccion1) {
+                        case 1:
+                           listaEdificios2.MostrarEdificio2();
+                            System.out.println("Elije una unidad:");
+                            int opcionEleccion2 = M.nextInt();
+                            if(opcionEleccion2>0 && opcionEleccion2<=cantEdificios){
+                                listaMilicia.MostrarMilicia2();
+                                System.out.println("Cantidad de soldados que atacarán:");
+                                int opcionEleccion3 = M.nextInt();
+                                if(opcionEleccion3>0 && opcionEleccion3<=cantMiliciaPropia){
+                                    System.out.println("Soldados que iran a la batalla:");
+                                    int m=1;
+                                    listaMilicia.MostrarMilicia2();
+                                    while(m<=opcionEleccion3){
+                                        int opcionEleccion4 = M.nextInt();
+                                    }
+                                }else{
+                                    System.out.println("El valor agregado esta fuera del rango");
+                                }
+                            }else{
+                                System.out.println("No ha seleccionado una unidad");
+                            }
+                           break;
+                        case 2:
+                            listaMilicia2.MostrarMilicia2();
+                            System.out.println("Elije un unidad:");
+                            break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");
+                    }
+                }catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }          
             }else{
-                System.out.println("No tienes ningun soldado para atacar, entrena algunos");
+
             }
-        }else{
-            
-        }
         
-        
+        }   
     }
 }
 
