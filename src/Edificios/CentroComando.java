@@ -10,11 +10,11 @@ package Edificios;
  * @author Erick Leones
  */
 public class CentroComando implements Edificios {
-    private int sangre=1000,sueños=600,madera=100,vida,sangreMax,sueñosMax,maderaMax,estado=0;
+    private int sangre=1000,sueños=600,madera=100,vida,sangreMax,sueñosMax,maderaMax,estado=1;
     String nombre="CentroComando";
     @Override
     public void Crear(int sangre, int sueños, int madera,int vida) {
-        this.sangreMax = madera;
+        this.sangreMax = sangre;
         this.sueñosMax = sueños;
         this.maderaMax = madera;
         this.vida = vida;

@@ -178,7 +178,13 @@ public class ListaEdificios {
                     }
                     i++;
                 }
-                edificios.get(0).modificarRecursos(Re1+(Rc*o), Re2, Re3, V1);
+                if(edificios.get(0).MostrarRecurso1()<edificios.get(0).MostrarMaxRecurso1()){
+                    edificios.get(0).modificarRecursos(Re1+(Rc*o), Re2, Re3, V1);
+                    if(edificios.get(0).MostrarRecurso1()>edificios.get(0).MostrarMaxRecurso1()){
+                        edificios.get(0).modificarRecursos(edificios.get(0).MostrarMaxRecurso1(), Re2, Re3, V1);
+                    }
+                }
+                
             }else if(Recurso==2){
                 while(i<itemCount){
                     if(edificios.get(i).MostrarNombre()==edificio){
@@ -189,7 +195,13 @@ public class ListaEdificios {
                         }
                     }
                     i++;
-                } edificios.get(0).modificarRecursos(Re1, Re2+(Rc*o), Re3, V1);
+                } 
+                if(edificios.get(0).MostrarRecurso2()<edificios.get(0).MostrarMaxRecurso2()){
+                    edificios.get(0).modificarRecursos(Re1, Re2+(Rc*o), Re3, V1);
+                    if(edificios.get(0).MostrarRecurso2()>edificios.get(0).MostrarMaxRecurso2()){
+                        edificios.get(0).modificarRecursos(Re1, edificios.get(0).MostrarMaxRecurso2(), Re3, V1);
+                    }
+                }
             }else if(Recurso==3){
                 while(i<itemCount){
                     if(edificios.get(i).MostrarNombre()==edificio){
@@ -200,7 +212,13 @@ public class ListaEdificios {
                         }
                     }
                     i++;
-                }edificios.get(0).modificarRecursos(Re1, Re2, Re3+(Rc*o), V1);
+                }
+                if(edificios.get(0).MostrarRecurso3()<edificios.get(0).MostrarMaxRecurso3()){
+                    edificios.get(0).modificarRecursos(Re1, Re2, Re3+(Rc*o), V1);
+                    if(edificios.get(0).MostrarRecurso3()>edificios.get(0).MostrarMaxRecurso3()){
+                        edificios.get(0).modificarRecursos(Re1,Re2 ,edificios.get(0).MostrarMaxRecurso3(), V1);
+                    }
+                }
             }
    
     }
@@ -214,6 +232,25 @@ public class ListaEdificios {
                 if(edificios.get(i).MostrarEstado()<0){
                     edificios.get(i).modificarEstado(edificios.get(i).MostrarEstado()+1);
                 }
+            }
+            i++;
+        }
+    }
+    public int VerEstadoEdificio(String edificio){      
+        int i =0, itemCount = edificios.size(),estado=1;
+        while(i<itemCount){
+            if(edificios.get(i).MostrarNombre()==edificio){
+                estado = edificios.get(i).MostrarEstado();
+            }
+            i++;
+        }
+        return estado;
+    }
+    public void ModificarEstadoEdificio(String edificio){      
+        int i =0, itemCount = edificios.size();
+        while(i<itemCount){
+            if(edificios.get(i).MostrarNombre()==edificio){
+                edificios.get(i).modificarEstado(edificios.get(i).MostrarEstado()+1);
             }
             i++;
         }

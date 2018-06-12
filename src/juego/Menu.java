@@ -150,15 +150,16 @@ public class Menu {
         
         modificarRecurso(TJugador,300,"CentroSangreA",1);
         modificarRecurso(TJugador,155,"RuedaSacrificios",2);
-        modificarRecurso(TJugador,30,"MineriaOro",3);
+        modificarRecurso(TJugador,85,"MineriaOro",3);
         
         modificarRecurso(TJugador,400,"Mineria",1);
         modificarRecurso(TJugador,200,"ProductorMana",2);
-        modificarRecurso(TJugador,50,"ProductorPocimas",3);
+        modificarRecurso(TJugador,100,"ProductorPocimas",3);
         
         modificarRecurso(TJugador,400,"CentroSangreD",1);
         modificarRecurso(TJugador,200,"ExtractorSueños",2);
-        modificarRecurso(TJugador,50,"CentroRecolector",3);
+        modificarRecurso(TJugador,100,"CentroRecolector",3);
+        
         if(TJugador==1){
             listaEdificios.VerEstado("CentroInvocacionA");
             listaEdificios.VerEstado("CentroInvocacionD");
@@ -229,6 +230,15 @@ public class Menu {
                                 escogerEdificiosA(TJugador);
                             }
                             break;
+                        case 2:
+                            if("Deidades".equals(jugador1.raza) ){
+                                mejorarComandoM(TJugador);
+                            }else if("Demonios".equals(jugador1.raza)){
+                                mejorarComandoD(TJugador);
+                            }else if("Angeles".equals(jugador1.raza)){
+                                mejorarComandoA(TJugador);
+                            }
+                            break;
                         case 4:
                             if(listaEdificios.verificarEdificioLista("CentroInvocacionA") || listaEdificios.verificarEdificioLista("CentroInvocacionD") || listaEdificios.verificarEdificioLista("CentroInvocacionM")){
                                 if("Deidades".equals(jugador1.raza) ){
@@ -286,6 +296,16 @@ public class Menu {
                                 escogerEdificiosA(TJugador);
                             }
                         break;
+                        case 2:
+                            if("Deidades".equals(jugador2.raza) ){
+                                mejorarComandoM(TJugador);
+                            }else if("Demonios".equals(jugador2.raza)){
+                                mejorarComandoD(TJugador);
+                            }else if("Angeles".equals(jugador2.raza)){
+                                mejorarComandoA(TJugador);
+                            }
+                            
+                            break;
                         case 4:
                             if(listaEdificios2.verificarEdificioLista("CentroInvocacionA") || listaEdificios2.verificarEdificioLista("CentroInvocacionD") || listaEdificios2.verificarEdificioLista("CentroInvocacionM")){
                                 if("Deidades".equals(jugador2.raza) ){
@@ -1193,6 +1213,403 @@ public class Menu {
             }
         }
         return maxMilicia;
+        
+    }
+    
+    public void mejorarComandoM(int TJugador){
+        if(listaEdificios.VerEstadoEdificio("TorreAsociacion")==3){
+            System.out.println("Ha llegado a su maximo nivel");
+        }else if(listaEdificios.VerEstadoEdificio("TorreAsociacion")==1){
+            System.out.println("----------------------------------------");
+            System.out.println("Mejorar por: Costo: 1333 madera +1333 mana +1333 pocimas");
+            System.out.println("1. aceptar ");
+            System.out.println("2. cancelar ");
+            System.out.println("Ingrese la opcion que desea ejecutar: ");
+            Edificios recu = listaEdificios.VerRecursos();
+            Edificios recu2 = listaEdificios2.VerRecursos();
+            Scanner M = new Scanner(System.in);
+            int R1,R2,R3,V;
+            if(TJugador==1){
+                try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            if(recu.MostrarRecurso1()>=1333 && recu.MostrarRecurso2()>=1333 && recu.MostrarRecurso3()>=1333){
+                                listaEdificios.ModificarEstadoEdificio("TorreAsociacion");
+                                recu.Crear(15000, 7500, 4500, 8000);
+                                R1=recu.MostrarRecurso1()-1333;
+                                R2=recu.MostrarRecurso2()-1333;
+                                R3=recu.MostrarRecurso3()-1333;
+                                V=recu.MostrarVida();
+                                recu.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            break;
+                        case 2:
+                            break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }else{
+               try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            if(recu2.MostrarRecurso1()>=1333 && recu2.MostrarRecurso2()>=1333 && recu2.MostrarRecurso3()>=1333){
+                                listaEdificios2.ModificarEstadoEdificio("TorreAsociacion");
+                                recu2.Crear(15000, 7500, 4500, 8000);
+                                R1=recu2.MostrarRecurso1()-1333;
+                                R2=recu2.MostrarRecurso2()-1333;
+                                R3=recu2.MostrarRecurso3()-1333;
+                                V=recu2.MostrarVida();
+                                recu2.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            break;
+                        case 2:
+                            break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }
+        }else if(listaEdificios.VerEstadoEdificio("TorreAsociacion")==2){
+            System.out.println("----------------------------------------");
+            System.out.println("Mejorar por: Costo: 2000 madera +2000 mana +2000 pocimas");
+            System.out.println("1. aceptar ");
+            System.out.println("2. cancelar ");
+            System.out.println("Ingrese la opcion que desea ejecutar: ");
+            Edificios recu = listaEdificios.VerRecursos();
+            Edificios recu2 = listaEdificios2.VerRecursos();
+            Scanner M = new Scanner(System.in);
+            int R1,R2,R3,V;
+            if(TJugador==1){
+                try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            if(recu.MostrarRecurso1()>=2000 && recu.MostrarRecurso2()>=2000 && recu.MostrarRecurso3()>=2000){
+                                listaEdificios.ModificarEstadoEdificio("TorreAsociacion");
+                                recu.Crear(20000, 10000, 6000, 8000);
+                                R1=recu.MostrarRecurso1()-2000;
+                                R2=recu.MostrarRecurso2()-2000;
+                                R3=recu.MostrarRecurso3()-2000;
+                                V=recu.MostrarVida();
+                                recu.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            break;
+                        case 2:
+                            break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }else{
+               try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            if(recu2.MostrarRecurso1()>=2000 && recu2.MostrarRecurso2()>=2000 && recu2.MostrarRecurso3()>=2000){
+                                listaEdificios2.ModificarEstadoEdificio("TorreAsociacion");
+                                recu2.Crear(20000, 10000, 6000, 8000);
+                                R1=recu2.MostrarRecurso1()-2000;
+                                R2=recu2.MostrarRecurso2()-2000;
+                                R3=recu2.MostrarRecurso3()-2000;
+                                V=recu2.MostrarVida();
+                                recu2.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            break;
+                        case 2:
+                            break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }
+        }
+        
+    }
+    public void mejorarComandoA(int TJugador){
+        if(listaEdificios.VerEstadoEdificio("CentroOperativo")==3){
+            System.out.println("Ha llegado a su maximo nivel");
+        }else if(listaEdificios.VerEstadoEdificio("CentroOperativo")==1){
+            System.out.println("----------------------------------------");
+            System.out.println("Mejorar por: Costo: 1333 madera +1333 mana +1333 pocimas");
+            System.out.println("1. aceptar ");
+            System.out.println("2. cancelar ");
+            System.out.println("Ingrese la opcion que desea ejecutar: ");
+            Edificios recu = listaEdificios.VerRecursos();
+            Edificios recu2 = listaEdificios2.VerRecursos();
+            Scanner M = new Scanner(System.in);
+            int R1,R2,R3,V;
+            if(TJugador==1){
+                try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            if(recu.MostrarRecurso1()>=1333 && recu.MostrarRecurso2()>=1333 && recu.MostrarRecurso3()>=1333){
+                                listaEdificios.ModificarEstadoEdificio("CentroOperativo");
+                                recu.Crear(15000, 7500, 4500, 8000);
+                                R1=recu.MostrarRecurso1()-1333;
+                                R2=recu.MostrarRecurso2()-1333;
+                                R3=recu.MostrarRecurso3()-1333;
+                                V=recu.MostrarVida();
+                                recu.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            break;
+                        case 2:
+                            break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }else{
+               try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            if(recu2.MostrarRecurso1()>=1333 && recu2.MostrarRecurso2()>=1333 && recu2.MostrarRecurso3()>=1333){
+                                listaEdificios2.ModificarEstadoEdificio("CentroOperativo");
+                                recu2.Crear(15000, 7500, 4500, 8000);
+                                R1=recu2.MostrarRecurso1()-1333;
+                                R2=recu2.MostrarRecurso2()-1333;
+                                R3=recu2.MostrarRecurso3()-1333;
+                                V=recu2.MostrarVida();
+                                recu2.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            break;
+                        case 2:
+                            break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }
+        }else if(listaEdificios.VerEstadoEdificio("CentroOperativo")==2){
+            System.out.println("----------------------------------------");
+            System.out.println("Mejorar por: Costo: 2000 madera +2000 mana +2000 pocimas");
+            System.out.println("1. aceptar ");
+            System.out.println("2. cancelar ");
+            System.out.println("Ingrese la opcion que desea ejecutar: ");
+            Edificios recu = listaEdificios.VerRecursos();
+            Edificios recu2 = listaEdificios2.VerRecursos();
+            Scanner M = new Scanner(System.in);
+            int R1,R2,R3,V;
+            if(TJugador==1){
+                try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            if(recu.MostrarRecurso1()>=2000 && recu.MostrarRecurso2()>=2000 && recu.MostrarRecurso3()>=2000){
+                                listaEdificios.ModificarEstadoEdificio("CentroOperativo");
+                                recu.Crear(20000, 10000, 6000, 8000);
+                                R1=recu.MostrarRecurso1()-2000;
+                                R2=recu.MostrarRecurso2()-2000;
+                                R3=recu.MostrarRecurso3()-2000;
+                                V=recu.MostrarVida();
+                                recu.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            break;
+                        case 2:
+                            break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }else{
+               try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            if(recu2.MostrarRecurso1()>=2000 && recu2.MostrarRecurso2()>=2000 && recu2.MostrarRecurso3()>=2000){
+                                listaEdificios2.ModificarEstadoEdificio("CentroOperativo");
+                                recu2.Crear(20000, 10000, 6000, 8000);
+                                R1=recu2.MostrarRecurso1()-2000;
+                                R2=recu2.MostrarRecurso2()-2000;
+                                R3=recu2.MostrarRecurso3()-2000;
+                                V=recu2.MostrarVida();
+                                recu2.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            break;
+                        case 2:
+                            break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }
+        }
+        
+    }
+    public void mejorarComandoD(int TJugador){
+        if(listaEdificios.VerEstadoEdificio("CentroComando")==3){
+            System.out.println("Ha llegado a su maximo nivel");
+        }else if(listaEdificios.VerEstadoEdificio("CentroComando")==1){
+            System.out.println("----------------------------------------");
+            System.out.println("Mejorar por: Costo: 1333 Sangre +1333 Sueños +1333 madera");
+            System.out.println("1. aceptar ");
+            System.out.println("2. cancelar ");
+            System.out.println("Ingrese la opcion que desea ejecutar: ");
+            Edificios recu = listaEdificios.VerRecursos();
+            Edificios recu2 = listaEdificios2.VerRecursos();
+            Scanner M = new Scanner(System.in);
+            int R1,R2,R3,V;
+            if(TJugador==1){
+                try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            if(recu.MostrarRecurso1()>=1333 && recu.MostrarRecurso2()>=1333 && recu.MostrarRecurso3()>=1333){
+                                listaEdificios.ModificarEstadoEdificio("CentroComando");
+                                recu.Crear(15000, 7500, 4500, 8000);
+                                R1=recu.MostrarRecurso1()-1333;
+                                R2=recu.MostrarRecurso2()-1333;
+                                R3=recu.MostrarRecurso3()-1333;
+                                V=recu.MostrarVida();
+                                recu.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            break;
+                        case 2:
+                            break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }else{
+               try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            if(recu2.MostrarRecurso1()>=1333 && recu2.MostrarRecurso2()>=1333 && recu2.MostrarRecurso3()>=1333){
+                                listaEdificios2.ModificarEstadoEdificio("CentroComando");
+                                recu2.Crear(15000, 7500, 4500, 8000);
+                                R1=recu2.MostrarRecurso1()-1333;
+                                R2=recu2.MostrarRecurso2()-1333;
+                                R3=recu2.MostrarRecurso3()-1333;
+                                V=recu2.MostrarVida();
+                                recu2.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            break;
+                        case 2:
+                            break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }
+        }else if(listaEdificios.VerEstadoEdificio("CentroComando")==2){
+            System.out.println("----------------------------------------");
+            System.out.println("Mejorar por: Costo: 2000 Sangre +2000 Sueños +2000 Madera");
+            System.out.println("1. aceptar ");
+            System.out.println("2. cancelar ");
+            System.out.println("Ingrese la opcion que desea ejecutar: ");
+            Edificios recu = listaEdificios.VerRecursos();
+            Edificios recu2 = listaEdificios2.VerRecursos();
+            Scanner M = new Scanner(System.in);
+            int R1,R2,R3,V;
+            if(TJugador==1){
+                try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            if(recu.MostrarRecurso1()>=2000 && recu.MostrarRecurso2()>=2000 && recu.MostrarRecurso3()>=2000){
+                                listaEdificios.ModificarEstadoEdificio("CentroComando");
+                                recu.Crear(20000, 10000, 6000, 8000);
+                                R1=recu.MostrarRecurso1()-2000;
+                                R2=recu.MostrarRecurso2()-2000;
+                                R3=recu.MostrarRecurso3()-2000;
+                                V=recu.MostrarVida();
+                                recu.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            break;
+                        case 2:
+                            break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }else{
+               try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            if(recu2.MostrarRecurso1()>=2000 && recu2.MostrarRecurso2()>=2000 && recu2.MostrarRecurso3()>=2000){
+                                listaEdificios2.ModificarEstadoEdificio("CentroComando");
+                                recu2.Crear(20000, 10000, 6000, 8000);
+                                R1=recu2.MostrarRecurso1()-2000;
+                                R2=recu2.MostrarRecurso2()-2000;
+                                R3=recu2.MostrarRecurso3()-2000;
+                                V=recu2.MostrarVida();
+                                recu2.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            break;
+                        case 2:
+                            break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }
+        }
         
     }
 }

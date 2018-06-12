@@ -10,7 +10,7 @@ package Edificios;
  * @author Erick Leones
  */
 public class TorreAsociacion  implements Edificios{
-    private int maderaMax,manaMax,pocimasMax,vida,madera=1000,mana=600,pocimas=100,estado=0;
+    private int maderaMax,manaMax,pocimasMax,vida,madera=1000,mana=600,pocimas=100,estado=1;
     String nombre="TorreAsociacion";
     @Override
     public void Crear(int madera, int mana, int pocimas,int vida) {

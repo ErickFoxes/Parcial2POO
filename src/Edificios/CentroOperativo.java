@@ -10,7 +10,7 @@ package Edificios;
  * @author Erick Leones
  */
 public class CentroOperativo  implements Edificios{
-    private int sangreMax,sacrificiosMax,oroMax,vida,sangre=1000,sacrificios=600,oro=100,estado=0;
+    private int sangreMax,sacrificiosMax,oroMax,vida,sangre=1000,sacrificios=600,oro=100,estado=1;
     String nombre="CentroOperativo";
     @Override
     public void Crear(int sangre, int sacrificios, int oro,int vida) {
