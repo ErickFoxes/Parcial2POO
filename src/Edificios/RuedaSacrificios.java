@@ -26,7 +26,7 @@ public class RuedaSacrificios  implements Edificios{
         }else{
             estadoE="Disponible";
         }  
-        return "Rueda de sacrificios:\nRecursos: Sacrificios: "+sacrificios+" vida: "+vida+" Estado:"+estadoE;
+        return "Rueda de sacrificios: Recursos: Sacrificios: "+sacrificios+" vida: "+vida+" Estado:"+estadoE;
     }
     @Override
     public int MostrarRecurso1() {

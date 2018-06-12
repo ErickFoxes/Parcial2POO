@@ -26,7 +26,7 @@ public class ExtractorSueños  implements Edificios{
         }else{
             estadoE="Disponible";
         }
-        return "Extractor de sueños:\nRecursos: Sueños: "+sueños+" vida: "+vida+" Estado:"+estadoE;
+        return "Extractor de sueños: Recursos: Sueños: "+sueños+" vida: "+vida+" Estado:"+estadoE;
     }
     @Override
     public int MostrarRecurso1() {

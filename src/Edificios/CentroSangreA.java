@@ -26,7 +26,7 @@ public class CentroSangreA  implements Edificios{
         }else{
             estadoE="Disponible";
         }    
-        return "Centro recolector de sangre :\nRecursos: Sangre: "+sangre+" vida: "+vida+" Estado:"+estadoE;
+        return "Centro recolector de sangre : Recursos: Sangre: "+sangre+" vida: "+vida+" Estado:"+estadoE;
     }
     @Override
     public int MostrarRecurso1() {

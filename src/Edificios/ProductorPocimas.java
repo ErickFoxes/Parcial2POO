@@ -26,7 +26,7 @@ public class ProductorPocimas  implements Edificios{
         }else{
             estadoE="Disponible";
         }
-        return "Productor de pocimas:\nRecursos: Pocimas: "+pocimas+" vida: "+vida+" Estado:"+estadoE;
+        return "Productor de pocimas: Recursos: Pocimas: "+pocimas+" vida: "+vida+" Estado:"+estadoE;
     }
 
     @Override

@@ -279,5 +279,16 @@ public class ListaEdificios {
         }
         return o;
     }
-    
+    public int contarEdificios(){
+        int  itemCount = edificios.size();
+        return itemCount;
+    }
+    public void MostrarEdificio2(){      
+
+        int i =0, itemCount = edificios.size(),o=0;
+        while(i<itemCount){
+            System.out.println((i+1)+"-"+edificios.get(i).MostrarNombre());
+            i++;
+        }
+    }
 }

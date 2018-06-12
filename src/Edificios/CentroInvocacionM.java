@@ -26,7 +26,7 @@ public class CentroInvocacionM  implements Edificios{
         }else{
             estadoE="Disponible";
         }
-        return "Centro invocador:\nRecursos: vida: "+vida+" Estado:"+estadoE;
+        return "Centro invocador: Recursos: vida: "+vida+" Estado:"+estadoE;
     }
     @Override
     public int MostrarRecurso1() {

@@ -21,7 +21,7 @@ public class TorreAsociacion  implements Edificios{
     }
     @Override
     public String toString() {
-        return "Torre Asociacion:\nRecursos: Piedra: "+madera+" Mana: "+mana+" Pocimas: "+pocimas+" vida: "+vida;
+        return "Torre Asociacion: Recursos: Piedra: "+madera+" Mana: "+mana+" Pocimas: "+pocimas+" vida: "+vida;
     }
 
     @Override

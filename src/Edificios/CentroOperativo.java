@@ -20,7 +20,7 @@ public class CentroOperativo  implements Edificios{
         this.vida = vida;
     }
     public String toString() {
-        return "Centro Operativo:\nRecursos: Sangre: "+sangre+" Sacrificios: "+sacrificios+" Oro: "+oro+" vida: "+vida;
+        return "Centro Operativo: Recursos: Sangre: "+sangre+" Sacrificios: "+sacrificios+" Oro: "+oro+" vida: "+vida;
     }
 
     @Override

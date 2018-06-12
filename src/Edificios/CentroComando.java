@@ -21,7 +21,7 @@ public class CentroComando implements Edificios {
     }
     
     public String toString() {
-        return "Centro Comando:\nRecursos: Sangre: "+sangre+" Sueños: "+sueños+" Madera: "+madera+" vida: "+vida;
+        return "Centro Comando: Recursos: Sangre: "+sangre+" Sueños: "+sueños+" Madera: "+madera+" vida: "+vida;
     }
 
     @Override

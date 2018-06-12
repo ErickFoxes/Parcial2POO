@@ -26,7 +26,7 @@ public class Mineria  implements Edificios{
         }else{
             estadoE="Disponible";
         }
-        return "Mineria:\nRecursos: Piedra: "+madera+" vida: "+vida+" Estado:"+estadoE;
+        return "Mineria: Recursos: Piedra: "+madera+" vida: "+vida+" Estado:"+estadoE;
     }
 
     @Override

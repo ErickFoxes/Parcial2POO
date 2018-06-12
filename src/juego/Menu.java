@@ -239,6 +239,15 @@ public class Menu {
                                 mejorarComandoA(TJugador);
                             }
                             break;
+                        case 3:
+                            if("Deidades".equals(jugador1.raza) ){
+                                AtacarM(TJugador);
+                            }else if("Demonios".equals(jugador1.raza)){
+                                mejorarComandoD(TJugador);
+                            }else if("Angeles".equals(jugador1.raza)){
+                                mejorarComandoA(TJugador);
+                            }
+                            break;
                         case 4:
                             if(listaEdificios.verificarEdificioLista("CentroInvocacionA") || listaEdificios.verificarEdificioLista("CentroInvocacionD") || listaEdificios.verificarEdificioLista("CentroInvocacionM")){
                                 if("Deidades".equals(jugador1.raza) ){
@@ -1610,6 +1619,22 @@ public class Menu {
                 }
             }
         }
+        
+    }
+    
+    public void AtacarM(int TJugador){
+        if(TJugador==1){
+            if(listaMilicia.contarMilicia()!=0){
+                int cantEdificios = listaEdificios2.contarEdificios();
+                listaEdificios2.MostrarEdificio2();
+                
+            }else{
+                System.out.println("No tienes ningun soldado para atacar, entrena algunos");
+            }
+        }else{
+            
+        }
+        
         
     }
 }

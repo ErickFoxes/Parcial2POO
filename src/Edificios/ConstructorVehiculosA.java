@@ -26,7 +26,7 @@ public class ConstructorVehiculosA  implements Edificios{
         }else{
             estadoE="Disponible";
         }    
-        return "Constructor de vehiculos:\nRecursos: vida: "+vida+" Estado:"+estadoE;
+        return "Constructor de vehiculos: Recursos: vida: "+vida+" Estado:"+estadoE;
     }
     @Override
     public int MostrarRecurso1() {
