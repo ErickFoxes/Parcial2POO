@@ -15,7 +15,9 @@ public interface Milicia {
     int mostrarVida();
     int mostrarEstado();
     int mostrarAtacando();
+    int mostrarEdificioAtacando();
     String mostrarNombre();
+    void modificarEdificioAtacando(int x);
     void modificarDaño(int x);
     void modificarVida(int x);
     void modificarEstado(int x);

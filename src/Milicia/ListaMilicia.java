@@ -5,9 +5,11 @@
  */
 package Milicia;
 
+import Edificios.ListaEdificios;
 import Factory.AbstractFactory;
 import Factory.FactoryProducer;
 import java.util.ArrayList;
+import juego.Menu;
 
 /**
  *
@@ -19,6 +21,9 @@ public class ListaMilicia {
     
     public ListaMilicia(){
         milicia = new ArrayList<>();
+    }
+    public ArrayList RegresarLista(){
+        return milicia;
     }
     /*Milicia Angeles*/
     public void AgregarArqueros(){
@@ -109,11 +114,32 @@ public class ListaMilicia {
         return itemCount;
     }
     public void MostrarMilicia2(){      
-
         int i =0, itemCount = milicia.size(),o=0;
         while(i<itemCount){
             System.out.println((i+1)+"-"+milicia.get(i).mostrarNombre());
             i++;
         }
     }
+    public void SoldadoAtacar(int x,int y){      
+        milicia.get(x-1).modificarAtacando(1);
+        milicia.get(x-1).modificarEdificioAtacando(y-1);
+    }
+    public void VerificarAtacando(){ 
+        Menu menu = new Menu();
+        int i =0, itemCount = milicia.size();
+        while(i<itemCount){
+            if(milicia.get(i).mostrarAtacando()!=0){
+                int o=0;
+                while(o!=milicia.get(i).mostrarEdificioAtacando()){
+                    o++;
+                }
+                int vidaEdificio = menu.RegresarVidaEdificio(o);
+                vidaEdificio = vidaEdificio-milicia.get(i).mostrarDaño();
+                menu.ModificarVidaEdificio(o,vidaEdificio);
+            }
+            
+            i++;
+        }
+    }
+    
 }

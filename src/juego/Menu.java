@@ -24,7 +24,7 @@ public class Menu {
     ListaMilicia listaMilicia2 = new ListaMilicia();
     private static Menu menu;
 
-    private Menu() {
+    public Menu() {
     }
 
     
@@ -160,6 +160,8 @@ public class Menu {
         modificarRecurso(TJugador,200,"ExtractorSueños",2);
         modificarRecurso(TJugador,100,"CentroRecolector",3);
         
+        VerificarAtaque(TJugador);
+        
         if(TJugador==1){
             listaEdificios.VerEstado("CentroInvocacionA");
             listaEdificios.VerEstado("CentroInvocacionD");
@@ -262,7 +264,9 @@ public class Menu {
                             }
                             break;
                         case 5:
+                            System.out.println("Edificaciones:");
                             listaEdificios.MostrarEdificio();
+                            System.out.println("Milicia:");
                             listaMilicia.MostrarMilicia();
                             break;
                         case 6:
@@ -329,7 +333,9 @@ public class Menu {
                             }
                             break;
                         case 5:
+                            System.out.println("Edificaciones:");
                             listaEdificios2.MostrarEdificio();
+                            System.out.println("Milicia:");
                             listaMilicia2.MostrarMilicia();
                         break;
                         case 6:
@@ -1634,22 +1640,23 @@ public class Menu {
                     switch (opcionEleccion1) {
                         case 1:
                            listaEdificios2.MostrarEdificio2();
-                            System.out.println("Elije una unidad:");
-                            int opcionEleccion2 = M.nextInt();
-                            if(opcionEleccion2>0 && opcionEleccion2<=cantEdificios){
-                                listaMilicia.MostrarMilicia2();
-                                System.out.println("Cantidad de soldados que atacarán:");
-                                int opcionEleccion3 = M.nextInt();
-                                if(opcionEleccion3>0 && opcionEleccion3<=cantMiliciaPropia){
-                                    System.out.println("Soldados que iran a la batalla:");
+                            System.out.println("Elije una unidad a atacar:");
+                            int opcionAAtacar = M.nextInt();
+                            if(opcionAAtacar>0 && opcionAAtacar<=cantEdificios){
+                                    System.out.println("Elija los soldados que iran a la batalla(elija 0  para terminar:");
                                     int m=1;
+                                    boolean t=true;
                                     listaMilicia.MostrarMilicia2();
-                                    while(m<=opcionEleccion3){
-                                        int opcionEleccion4 = M.nextInt();
+                                    while(t){
+                                        int opcionSoldado = M.nextInt();
+                                        if(opcionSoldado==0){
+                                            t=false;
+                                        }else{
+                                            listaMilicia.SoldadoAtacar(m,opcionAAtacar);
+                                            m++;
+                                        }
                                     }
-                                }else{
-                                    System.out.println("El valor agregado esta fuera del rango");
-                                }
+                                
                             }else{
                                 System.out.println("No ha seleccionado una unidad");
                             }
@@ -1666,10 +1673,24 @@ public class Menu {
                     M.nextLine();
                 }          
             }else{
-
+                System.out.println("Usted no tiene soldados con que atacar");
             }
         
         }   
+    }
+    
+    public void VerificarAtaque(int TJugador){
+        if(TJugador==1){
+            listaMilicia.VerificarAtacando();
+        }else{
+            
+        }
+    }
+    public int RegresarVidaEdificio(int x){
+        return listaEdificios2.RegresarVida(x);
+    }
+    public void ModificarVidaEdificio(int x,int vidaNew){
+        listaEdificios2.ModificarVidaEdificio(x, vidaNew);
     }
 }
 

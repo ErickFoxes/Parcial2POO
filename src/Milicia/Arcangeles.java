@@ -10,7 +10,7 @@ package Milicia;
  * @author Erick Leones
  */
 public class Arcangeles implements Milicia{
-    int daño,vida,estado,atacando;
+    int daño,vida,estado,atacando,EdificioAtacando;
     String nombre="Arcangeles";
     @Override
     public void Crear(int daño, int vida, int estado, int atacando) {
@@ -20,13 +20,18 @@ public class Arcangeles implements Milicia{
         this.atacando = atacando;
     }
     public String toString() {
-        String estadoE;
+        String estadoE,Ataca;
         if(estado!=0){
             estadoE="No disponible";
         }else{
             estadoE="Disponible";
         }
-        return "Arcangel: Daño:"+daño+" vida: "+vida+" Estado:"+estadoE;
+        if(atacando==0){
+            Ataca="No";
+        }else{
+            Ataca="Si";
+        }
+        return "Arcangel: Daño:"+daño+" vida: "+vida+" Estado:"+estadoE+" Atcando:"+Ataca;
     }
     @Override
     public int mostrarDaño() {
@@ -71,5 +76,15 @@ public class Arcangeles implements Milicia{
     @Override
     public String mostrarNombre() {
         return nombre;
+    }
+
+    @Override
+    public int mostrarEdificioAtacando() {
+        return EdificioAtacando;
+    }
+
+    @Override
+    public void modificarEdificioAtacando(int x) {
+        this.EdificioAtacando = x;
     }
 }

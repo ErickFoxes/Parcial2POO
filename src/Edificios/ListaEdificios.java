@@ -19,7 +19,9 @@ public class ListaEdificios {
     public ListaEdificios(){
         edificios = new ArrayList<>();
     }
-    
+    public ArrayList RegresarLista(){
+        return edificios;
+    }
     /*Edificios de Deidades*/
     public void AgregarTorreQuemado(){
         AbstractFactory factory;
@@ -290,5 +292,11 @@ public class ListaEdificios {
             System.out.println((i+1)+"-"+edificios.get(i).MostrarNombre());
             i++;
         }
+    }
+    public int RegresarVida(int x){
+        return edificios.get(x).MostrarVida();
+    }
+    public void ModificarVidaEdificio(int x,int vidaNew){
+        edificios.get(x).modificarRecursos(edificios.get(x).MostrarRecurso1(), edificios.get(x).MostrarRecurso2(), edificios.get(x).MostrarRecurso3(), vidaNew);
     }
 }
