@@ -1696,7 +1696,7 @@ public class Menu {
                         vidaEdificio = vidaEdificio-listaMilicia.RegresarDaño(i);
                         listaEdificios2.ModificarVidaEdificio(o, vidaEdificio);
                     }else{
-                        
+                        listaMilicia.SoldadoNOAtacar(i);
                     }
                     
                 }

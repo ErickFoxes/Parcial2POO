@@ -124,6 +124,9 @@ public class ListaMilicia {
         milicia.get(x-1).modificarAtacando(1);
         milicia.get(x-1).modificarEdificioAtacando(y-1);
     }
+    public void SoldadoNOAtacar(int x){      
+        milicia.get(x).modificarAtacando(0);
+    }
     
     public int RegresarDaño(int x){
         return milicia.get(x).mostrarDaño();
