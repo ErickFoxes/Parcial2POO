@@ -8,6 +8,7 @@ package juego;
 import Edificios.Edificios;
 import Edificios.ListaEdificios;
 import Milicia.ListaMilicia;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -1652,7 +1653,7 @@ public class Menu {
                                         if(opcionSoldado==0){
                                             t=false;
                                         }else{
-                                            listaMilicia.SoldadoAtacar(m,opcionAAtacar);
+                                            listaMilicia.SoldadoAtacar(opcionSoldado,opcionAAtacar);
                                             m++;
                                         }
                                     }
@@ -1681,7 +1682,26 @@ public class Menu {
     
     public void VerificarAtaque(int TJugador){
         if(TJugador==1){
-            listaMilicia.VerificarAtacando();
+            ArrayList liMili = listaMilicia.RegresarLista();
+            ArrayList liEdi = listaEdificios2.RegresarLista();
+            int i = 0;
+            while(i<liMili.size()){
+                if(listaMilicia.VerificarAtacando(i)==1){
+                    int o=0;
+                    while(o!=listaMilicia.VerificarQuienAtacando(o)){
+                        o++;
+                    }
+                    int vidaEdificio = listaEdificios2.RegresarVida(o);
+                    if(vidaEdificio>0){
+                        vidaEdificio = vidaEdificio-listaMilicia.RegresarDaño(i);
+                        listaEdificios2.ModificarVidaEdificio(o, vidaEdificio);
+                    }else{
+                        
+                    }
+                    
+                }
+                 i++;   
+            }
         }else{
             
         }

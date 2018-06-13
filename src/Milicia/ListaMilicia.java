@@ -124,22 +124,33 @@ public class ListaMilicia {
         milicia.get(x-1).modificarAtacando(1);
         milicia.get(x-1).modificarEdificioAtacando(y-1);
     }
-    public void VerificarAtacando(){ 
-        Menu menu = new Menu();
-        int i =0, itemCount = milicia.size();
-        while(i<itemCount){
-            if(milicia.get(i).mostrarAtacando()!=0){
-                int o=0;
-                while(o!=milicia.get(i).mostrarEdificioAtacando()){
-                    o++;
-                }
-                int vidaEdificio = menu.RegresarVidaEdificio(o);
-                vidaEdificio = vidaEdificio-milicia.get(i).mostrarDaño();
-                menu.ModificarVidaEdificio(o,vidaEdificio);
-            }
-            
-            i++;
-        }
+    
+    public int RegresarDaño(int x){
+        return milicia.get(x).mostrarDaño();
     }
+    public int VerificarAtacando(int x){ 
+        return milicia.get(x).mostrarAtacando();
+        
+    }
+    public int VerificarQuienAtacando(int x){ 
+        return milicia.get(x).mostrarEdificioAtacando();
+    }
+//    public void VerificarAtacando2(){ 
+//        Menu menu = new Menu();
+//        int i =0, itemCount = milicia.size();
+//        while(i<itemCount){
+//            if(milicia.get(i).mostrarAtacando()!=0){
+//                int o=0;
+//                while(o!=milicia.get(i).mostrarEdificioAtacando()){
+//                    o++;
+//                }
+//                int vidaEdificio = menu.RegresarVidaEdificio(o);
+//                vidaEdificio = vidaEdificio-milicia.get(i).mostrarDaño();
+//                menu.ModificarVidaEdificio(o,vidaEdificio);
+//            }
+//            
+//            i++;
+//        }
+//    }
     
 }
