@@ -11,11 +11,11 @@ import Milicia.ListaMilicia;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 /**
  *t
  * @author Erick <00092217@uca.edu.sv>
  */
+
 public class Menu {
     Jugador jugador1 = new Jugador();
     Jugador jugador2 = new Jugador();
