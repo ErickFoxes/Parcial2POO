@@ -26,7 +26,11 @@ public class ConstructorVehiculosM  implements Edificios{
         }else{
             estadoE="Disponible";
         }
-        return "Constructor de vehiculos: Recursos: vida: "+vida+" Estado:"+estadoE;
+        int life = 0;
+        if(vida>=0){
+            life = vida;
+        }
+        return "Constructor de vehiculos: Recursos: vida: "+life+" Estado:"+estadoE;
     }
 
     @Override

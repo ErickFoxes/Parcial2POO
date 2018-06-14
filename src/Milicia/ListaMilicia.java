@@ -5,11 +5,9 @@
  */
 package Milicia;
 
-import Edificios.ListaEdificios;
 import Factory.AbstractFactory;
 import Factory.FactoryProducer;
 import java.util.ArrayList;
-import juego.Menu;
 
 /**
  *
@@ -116,7 +114,11 @@ public class ListaMilicia {
     public void MostrarMilicia2(){      
         int i =0, itemCount = milicia.size(),o=0;
         while(i<itemCount){
-            System.out.println((i+1)+"-"+milicia.get(i).mostrarNombre());
+            String estadoOcupado="No";
+            if(milicia.get(i).mostrarAtacando()==1){
+                estadoOcupado="Si";
+            }
+            System.out.println((i+1)+"-"+milicia.get(i).mostrarNombre()+" Ocupado: "+estadoOcupado);
             i++;
         }
     }

@@ -149,17 +149,17 @@ public class Menu {
         System.out.println("                Fase "+fase+"              ");
         System.out.println("-----------------------------------------");
         
-        modificarRecurso(TJugador,300,"CentroSangreA",1);
-        modificarRecurso(TJugador,155,"RuedaSacrificios",2);
-        modificarRecurso(TJugador,85,"MineriaOro",3);
+        modificarRecurso(TJugador,400,"CentroSangreA",1);
+        modificarRecurso(TJugador,250,"RuedaSacrificios",2);
+        modificarRecurso(TJugador,125,"MineriaOro",3);
         
-        modificarRecurso(TJugador,400,"Mineria",1);
-        modificarRecurso(TJugador,200,"ProductorMana",2);
-        modificarRecurso(TJugador,100,"ProductorPocimas",3);
+        modificarRecurso(TJugador,500,"Mineria",1);
+        modificarRecurso(TJugador,300,"ProductorMana",2);
+        modificarRecurso(TJugador,150,"ProductorPocimas",3);
         
-        modificarRecurso(TJugador,400,"CentroSangreD",1);
-        modificarRecurso(TJugador,200,"ExtractorSueños",2);
-        modificarRecurso(TJugador,100,"CentroRecolector",3);
+        modificarRecurso(TJugador,600,"CentroSangreD",1);
+        modificarRecurso(TJugador,400,"ExtractorSueños",2);
+        modificarRecurso(TJugador,200,"CentroRecolector",3);
         
         VerificarAtaque(TJugador);
         
@@ -246,9 +246,9 @@ public class Menu {
                             if("Deidades".equals(jugador1.raza) ){
                                 AtacarM(TJugador);
                             }else if("Demonios".equals(jugador1.raza)){
-                                mejorarComandoD(TJugador);
+                                AtacarM(TJugador);
                             }else if("Angeles".equals(jugador1.raza)){
-                                mejorarComandoA(TJugador);
+                                AtacarM(TJugador);
                             }
                             break;
                         case 4:
@@ -319,6 +319,15 @@ public class Menu {
                                 mejorarComandoA(TJugador);
                             }
                             
+                            break;
+                        case 3:
+                            if("Deidades".equals(jugador2.raza) ){
+                                AtacarM(TJugador);
+                            }else if("Demonios".equals(jugador2.raza)){
+                                AtacarM(TJugador);
+                            }else if("Angeles".equals(jugador2.raza)){
+                                AtacarM(TJugador);
+                            }
                             break;
                         case 4:
                             if(listaEdificios2.verificarEdificioLista("CentroInvocacionA") || listaEdificios2.verificarEdificioLista("CentroInvocacionD") || listaEdificios2.verificarEdificioLista("CentroInvocacionM")){
@@ -1645,7 +1654,6 @@ public class Menu {
                             int opcionAAtacar = M.nextInt();
                             if(opcionAAtacar>0 && opcionAAtacar<=cantEdificios){
                                     System.out.println("Elija los soldados que iran a la batalla(elija 0  para terminar:");
-                                    int m=1;
                                     boolean t=true;
                                     listaMilicia.MostrarMilicia2();
                                     while(t){
@@ -1653,8 +1661,8 @@ public class Menu {
                                         if(opcionSoldado==0){
                                             t=false;
                                         }else{
-                                            listaMilicia.SoldadoAtacar(opcionSoldado,opcionAAtacar);
-                                            m++;
+                                                listaMilicia.SoldadoAtacar(opcionSoldado,opcionAAtacar);
+                                            
                                         }
                                     }
                                 
@@ -1664,7 +1672,7 @@ public class Menu {
                            break;
                         case 2:
                             listaMilicia2.MostrarMilicia2();
-                            System.out.println("Elije un unidad:");
+                            System.out.println("Elije una unidad:");
                             break;
                         default:
                             System.out.println("Por favor ingresa un valor valido");
@@ -1677,6 +1685,52 @@ public class Menu {
                 System.out.println("Usted no tiene soldados con que atacar");
             }
         
+        }else{
+            if(listaMilicia2.contarMilicia()!=0){
+                int cantEdificios = listaEdificios.contarEdificios();
+                int cantMiliciaPropia = listaMilicia2.contarMilicia();
+                System.out.println("1-Edificios\n2-Milicia\nElige un objetivo:");
+                Scanner M = new Scanner(System.in);
+                int opcionEleccion1 = M.nextInt();
+                try {
+                    switch (opcionEleccion1) {
+                        case 1:
+                           listaEdificios.MostrarEdificio2();
+                            System.out.println("Elije una unidad a atacar:");
+                            int opcionAAtacar = M.nextInt();
+                            if(opcionAAtacar>0 && opcionAAtacar<=cantEdificios){
+                                    System.out.println("Elija los soldados que iran a la batalla(elija 0  para terminar:");
+                                    boolean t=true;
+                                    listaMilicia2.MostrarMilicia2();
+                                    while(t){
+                                        int opcionSoldado = M.nextInt();
+                                        if(opcionSoldado==0){
+                                            t=false;
+                                        }else{
+                                                listaMilicia2.SoldadoAtacar(opcionSoldado,opcionAAtacar);
+                                                
+                                            
+                                        }
+                                    }
+                                
+                            }else{
+                                System.out.println("No ha seleccionado una unidad");
+                            }
+                           break;
+                        case 2:
+                            listaMilicia2.MostrarMilicia2();
+                            System.out.println("Elije una unidad:");
+                            break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");
+                    }
+                }catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }          
+            }else{
+                System.out.println("Usted no tiene soldados con que atacar");
+            }
         }   
     }
     
@@ -1688,7 +1742,7 @@ public class Menu {
             while(i<liMili.size()){
                 if(listaMilicia.VerificarAtacando(i)==1){
                     int o=0;
-                    while(o!=listaMilicia.VerificarQuienAtacando(o)){
+                    while(o!=listaMilicia.VerificarQuienAtacando(i)){
                         o++;
                     }
                     int vidaEdificio = listaEdificios2.RegresarVida(o);
@@ -1703,7 +1757,26 @@ public class Menu {
                  i++;   
             }
         }else{
-            
+            ArrayList liMili = listaMilicia2.RegresarLista();
+            ArrayList liEdi = listaEdificios.RegresarLista();
+            int i = 0;
+            while(i<liMili.size()){
+                if(listaMilicia2.VerificarAtacando(i)==1){
+                    int o=0;
+                    while(o!=listaMilicia2.VerificarQuienAtacando(i)){
+                        o++;
+                    }
+                    int vidaEdificio = listaEdificios.RegresarVida(o);
+                    if(vidaEdificio>0){
+                        vidaEdificio = vidaEdificio-listaMilicia2.RegresarDaño(i);
+                        listaEdificios.ModificarVidaEdificio(o, vidaEdificio);
+                    }else{
+                        listaMilicia2.SoldadoNOAtacar(i);
+                    }
+                    
+                }
+                 i++;   
+            }
         }
     }
     public int RegresarVidaEdificio(int x){

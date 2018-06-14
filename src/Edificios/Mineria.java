@@ -26,7 +26,11 @@ public class Mineria  implements Edificios{
         }else{
             estadoE="Disponible";
         }
-        return "Mineria: Recursos: Piedra: "+madera+" vida: "+vida+" Estado:"+estadoE;
+        int life = 0;
+        if(vida>=0){
+            life = vida;
+        }
+        return "Mineria: Recursos: Piedra: "+madera+" vida: "+life+" Estado:"+estadoE;
     }
 
     @Override

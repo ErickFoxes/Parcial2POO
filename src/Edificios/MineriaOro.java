@@ -26,7 +26,11 @@ public class MineriaOro  implements Edificios{
         }else{
             estadoE="Disponible";
         }    
-        return "Mineria de oro: Recursos: Oro: "+oro+" vida: "+vida+" Estado:"+estadoE;
+        int life = 0;
+        if(vida>=0){
+            life = vida;
+        }
+        return "Mineria de oro: Recursos: Oro: "+oro+" vida: "+life+" Estado:"+estadoE;
     }
     @Override
     public int MostrarRecurso1() {

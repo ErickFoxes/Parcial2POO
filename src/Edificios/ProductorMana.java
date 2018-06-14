@@ -27,7 +27,11 @@ public class ProductorMana  implements Edificios{
         }else{
             estadoE="Disponible";
         }
-        return "Productor mana: Recursos: Mana: "+mana+" vida: "+vida+" Estado:"+estadoE;
+        int life = 0;
+        if(vida>=0){
+            life = vida;
+        }
+        return "Productor mana: Recursos: Mana: "+mana+" vida: "+life+" Estado:"+estadoE;
     }
     
     @Override

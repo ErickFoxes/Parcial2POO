@@ -26,7 +26,11 @@ public class CentroRecolector  implements Edificios{
         }else{
             estadoE="Disponible";
         }
-        return "Centro recolector de madera: Recursos: Madera: "+madera+" vida: "+vida+" Estado:"+estadoE;
+        int life = 0;
+        if(vida>=0){
+            life = vida;
+        }
+        return "Centro recolector de madera: Recursos: Madera: "+madera+" vida: "+life+" Estado:"+estadoE;
     }
 
     @Override

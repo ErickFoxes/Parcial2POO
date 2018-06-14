@@ -26,7 +26,11 @@ public class CentroInvocacionA  implements Edificios{
         }else{
             estadoE="Disponible";
         }
-        return "Centro invocador de angeles: Recursos: vida: "+vida+" Estado:"+estadoE;
+        int life = 0;
+        if(vida>=0){
+            life = vida;
+        }
+        return "Centro invocador de angeles: Recursos: vida: "+life+" Estado:"+estadoE;
     }
     @Override
     public int MostrarRecurso1() {
