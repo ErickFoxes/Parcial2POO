@@ -10,5 +10,16 @@ package Vehiculos;
  * @author Erick Leones
  */
 public interface Vehiculos {
-    void Crear();
+    void Crear(int daño, int vida, int estado, int atacando);
+    int mostrarDaño();
+    int mostrarVida();
+    int mostrarEstado();
+    int mostrarAtacando();
+    int mostrarEdificioAtacando();
+    String mostrarNombre();
+    void modificarEdificioAtacando(int x);
+    void modificarDaño(int x);
+    void modificarVida(int x);
+    void modificarEstado(int x);
+    void modificarAtacando(int x);
 }

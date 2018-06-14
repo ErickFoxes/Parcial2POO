@@ -218,7 +218,8 @@ public class Menu {
             System.out.println("3. Atacar ");
             System.out.println("4. Entrenar ");
             System.out.println("5. Mostrar recursos,edificios,milicia ");
-            System.out.println("6. Terminar ");
+            System.out.println("6. Crear vehiculo");
+            System.out.println("7. Terminar ");
             System.out.println("Ingrese la opcion que desea ejecutar: ");
             Scanner M = new Scanner(System.in);
                 try {
@@ -270,7 +271,7 @@ public class Menu {
                             System.out.println("Milicia:");
                             listaMilicia.MostrarMilicia();
                             break;
-                        case 6:
+                        case 7:
                             b=false;
                             break;
                         default:
@@ -295,7 +296,8 @@ public class Menu {
             System.out.println("3. Atacar ");
             System.out.println("4. Entrenar ");
             System.out.println("5. Mostrar recursos,edificios,milicia ");
-            System.out.println("6. Terminar ");
+            System.out.println("6. Crear vehiculo");
+            System.out.println("7. Terminar ");
             System.out.println("Ingrese la opcion que desea ejecutar: ");
             Scanner M = new Scanner(System.in);
                 try {
@@ -348,7 +350,7 @@ public class Menu {
                             System.out.println("Milicia:");
                             listaMilicia2.MostrarMilicia();
                         break;
-                        case 6:
+                        case 7:
                             b=false;
                             break;
                         default:
@@ -1195,25 +1197,277 @@ public class Menu {
     public void escogerVehiculosD(int TJugador) {
         System.out.println("----------------------------------------");
         System.out.println("Vehiculos, Llamar:");
-        System.out.println("1. Cuervo (Costo: )"+20+" Fases: ");
-        System.out.println("2. Toro S (Costo: )"+20+" Fases: ");
+        System.out.println("1. Cuervo Costo: 3000 sangre + 3000 sueños Fases:3 fases\nDaño: 100 Vida: 500 ");
+        System.out.println("2. Toro S Costo: 4000 sangre + 3000 sueños Fases:3 fases\nDaño: 150 Vida: 700  ");
         System.out.println("Ingrese la opcion que desea ejecutar: ");
+        Scanner M = new Scanner(System.in);
+        boolean b = true;
+        Edificios recu = listaEdificios.VerRecursos();
+        Edificios recu2 = listaEdificios2.VerRecursos();
+        int R1,R2,R3,V;
+        if(TJugador==1){
+            while(b){
+                try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            if(recu.MostrarRecurso1()>=3000 && recu.MostrarRecurso2()>=3000){
+                                listaEdificios.AgregarDonadorSangreD();
+                                R1=recu.MostrarRecurso1()-3000;
+                                R2=recu.MostrarRecurso2()-3000;
+                                R3=recu.MostrarRecurso3();
+                                V=recu.MostrarVida();
+                                recu.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            b=false;
+                            break;
+                        case 2:
+                            if(recu.MostrarRecurso1()>=4000 && recu.MostrarRecurso2()>=3000){
+                                listaEdificios.AgregarDonadorSangreD();
+                                R1=recu.MostrarRecurso1()-4000;
+                                R2=recu.MostrarRecurso2()-3000;
+                                R3=recu.MostrarRecurso3();
+                                V=recu.MostrarVida();
+                                recu.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            b=false;
+                            break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");      
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }  
+        }else{
+            while(b){
+               try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            if(recu.MostrarRecurso1()>=3000 && recu.MostrarRecurso2()>=3000){
+                                listaEdificios2.AgregarDonadorSangreD();
+                                R1=recu.MostrarRecurso1()-3000;
+                                R2=recu.MostrarRecurso2()-3000;
+                                R3=recu.MostrarRecurso3();
+                                V=recu.MostrarVida();
+                                recu.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            b=false;
+                            break;
+                        case 2:
+                            if(recu.MostrarRecurso1()>=4000 && recu.MostrarRecurso2()>=3000){
+                                listaEdificios2.AgregarDonadorSangreD();
+                                R1=recu.MostrarRecurso1()-4000;
+                                R2=recu.MostrarRecurso2()-3000;
+                                R3=recu.MostrarRecurso3();
+                                V=recu.MostrarVida();
+                                recu.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            b=false;
+                            break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");      
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }  
+        }
     }
     
     public void escogerVehiculosA(int TJugador) {
         System.out.println("----------------------------------------");
         System.out.println("Vehiculos, Llamar:");
-        System.out.println("1. Caballo  (Costo: )"+20+" Fases: ");
-        System.out.println("2. Carrosas (Costo: )"+20+" Fases: ");
+        System.out.println("1. Caballo  Costo: 2000 sangre + 3000 Sacrificios Fases:3 fases\nDaño: 60 Vida: 300 ");
+        System.out.println("2. Carrosas  Costo: 5000 sangre + 2000 Sacrificios Fases:3 fases\nDaño: 130 Vida: 700 ");
         System.out.println("Ingrese la opcion que desea ejecutar: ");
+        Scanner M = new Scanner(System.in);
+        boolean b = true;
+        Edificios recu = listaEdificios.VerRecursos();
+        Edificios recu2 = listaEdificios2.VerRecursos();
+        int R1,R2,R3,V;
+        if(TJugador==1){
+            while(b){
+                try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            if(recu.MostrarRecurso1()>=2000 && recu.MostrarRecurso2()>=3000){
+                                listaEdificios.AgregarDonadorSangreD();
+                                R1=recu.MostrarRecurso1()-2000;
+                                R2=recu.MostrarRecurso2()-3000;
+                                R3=recu.MostrarRecurso3();
+                                V=recu.MostrarVida();
+                                recu.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            b=false;
+                            break;
+                        case 2:
+                            if(recu.MostrarRecurso1()>=5000 && recu.MostrarRecurso2()>=2000){
+                                listaEdificios.AgregarDonadorSangreD();
+                                R1=recu.MostrarRecurso1()-5000;
+                                R2=recu.MostrarRecurso2()-2000;
+                                R3=recu.MostrarRecurso3();
+                                V=recu.MostrarVida();
+                                recu.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            b=false;
+                            break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");      
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }  
+        }else{
+            while(b){
+               try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            if(recu.MostrarRecurso1()>=2000 && recu.MostrarRecurso2()>=3000){
+                                listaEdificios2.AgregarDonadorSangreD();
+                                R1=recu.MostrarRecurso1()-5000;
+                                R2=recu.MostrarRecurso2()-2000;
+                                R3=recu.MostrarRecurso3();
+                                V=recu.MostrarVida();
+                                recu.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            b=false;
+                            break;
+                        case 2:
+                            if(recu.MostrarRecurso1()>=5000 && recu.MostrarRecurso2()>=2000){
+                                listaEdificios2.AgregarDonadorSangreD();
+                                R1=recu.MostrarRecurso1()-3000;
+                                R2=recu.MostrarRecurso2()-2000;
+                                R3=recu.MostrarRecurso3();
+                                V=recu.MostrarVida();
+                                recu.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            b=false;
+                            break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");      
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }  
+        }
     }
     
     public void escogerVehiculosM(int TJugador) {
         System.out.println("----------------------------------------");
         System.out.println("Vehiculos, Crear:");
-        System.out.println("1. MBW volador  (Costo: )"+20+" Fases: ");
-        System.out.println("2. caballo alado (Costo: )"+20+" Fases: ");
+        System.out.println("1. MBW volador  Costo: 5000 piedra + 2000 Mana Fases:3 fases\nDaño: 70 Vida: 600 ");
+        System.out.println("2. caballo alado pocimas: 3000 piedra + 3000 Mana Fases:3 fases\nDaño: 400 Vida: 300");
         System.out.println("Ingrese la opcion que desea ejecutar: ");
+        Scanner M = new Scanner(System.in);
+        boolean b = true;
+        Edificios recu = listaEdificios.VerRecursos();
+        Edificios recu2 = listaEdificios2.VerRecursos();
+        int R1,R2,R3,V;
+        if(TJugador==1){
+            while(b){
+                try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            if(recu.MostrarRecurso1()>=5000 && recu.MostrarRecurso2()>=2000){
+                                listaEdificios.AgregarDonadorSangreD();
+                                R1=recu.MostrarRecurso1()-5000;
+                                R2=recu.MostrarRecurso2()-2000;
+                                R3=recu.MostrarRecurso3();
+                                V=recu.MostrarVida();
+                                recu.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            b=false;
+                            break;
+                        case 2:
+                            if(recu.MostrarRecurso1()>=3000 && recu.MostrarRecurso2()>=3000){
+                                listaEdificios.AgregarDonadorSangreD();
+                                R1=recu.MostrarRecurso1()-3000;
+                                R2=recu.MostrarRecurso2()-3000;
+                                R3=recu.MostrarRecurso3();
+                                V=recu.MostrarVida();
+                                recu.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            b=false;
+                            break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");      
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }  
+        }else{
+            while(b){
+               try {
+                    int opcionInvocacion = M.nextInt();
+                    switch (opcionInvocacion) {
+                        case 1:
+                            if(recu.MostrarRecurso1()>=5000 && recu.MostrarRecurso2()>=2000){
+                                listaEdificios2.AgregarDonadorSangreD();
+                                R1=recu.MostrarRecurso1()-5000;
+                                R2=recu.MostrarRecurso2()-2000;
+                                R3=recu.MostrarRecurso3();
+                                V=recu.MostrarVida();
+                                recu.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            b=false;
+                            break;
+                        case 2:
+                            if(recu.MostrarRecurso1()>=3000 && recu.MostrarRecurso2()>=3000){
+                                listaEdificios2.AgregarDonadorSangreD();
+                                R1=recu.MostrarRecurso1()-3000;
+                                R2=recu.MostrarRecurso2()-3000;
+                                R3=recu.MostrarRecurso3();
+                                V=recu.MostrarVida();
+                                recu.modificarRecursos(R1, R2, R3, V);
+                            }else{
+                                System.out.println("No tienes recursos suficientes");
+                            }
+                            b=false;
+                            break;
+                        default:
+                            System.out.println("Por favor ingresa un valor valido");      
+                    }
+                } catch (InputMismatchException E){
+                    System.err.println("Debes ingresar un # entero");
+                    M.nextLine();
+                }
+            }  
+        }
     }
     
     public int maximoMilicia(int TJugador){
