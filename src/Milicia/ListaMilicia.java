@@ -40,7 +40,6 @@ public class ListaMilicia {
         
         milicia.add(mili);
         mili.Crear(425, 400, -4, 0);
-        
     }
     /*Milicia Deidades*/
     public void AgregarClaseA(){
